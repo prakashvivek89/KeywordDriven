@@ -1,0 +1,116 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>KeywordDriven</groupId>
+	<artifactId>AdviserKeywordDriven</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>ADVISER_KEYWORD_DRIVEN</name>
+
+	<properties>
+		<selenium.version>3.5.3</selenium.version>
+		<slf4jVersion>1.7.21</slf4jVersion>
+		<maven-surefire-plugin>2.19.1</maven-surefire-plugin>
+		<maven-compiler-plugin>3.5.1</maven-compiler-plugin>
+		<maven-cucumber-reporting>3.1.0</maven-cucumber-reporting>
+		<testng>6.8.21</testng>
+		<java-version>1.8</java-version>
+		<random-string>1.1.0</random-string>
+		<poi>3.17-beta1</poi>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java-compiler>C:\Program Files\Java\jdk1.8.0_102\bin\javac.exe</java-compiler>
+		<java-tools.jar>C:\Program Files\Java\jdk1.8.0_102\lib\tools.jar</java-tools.jar>
+		<guava>23.0</guava>
+		<extentreports>3.0.7</extentreports>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin}</version>
+				<configuration>
+					<encoding>${utf-8}</encoding>
+					<fork>true</fork>
+					<executable>${java-compiler}</executable>
+					<source>${java-version}</source>
+					<target>${java-version}</target>
+				</configuration>
+			</plugin>
+			 <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${maven-surefire-plugin}</version>
+				<configuration>
+				<includes>
+						<include>src/test/java/com/SSPWorldWide/Framework?Adviser/Helper/WebdriverHelper.class</include>
+					</includes>
+					<suiteXmlFiles>
+						<suiteXmlFile>src/test/resources/dynamicXML/Client_TestSuite.xml</suiteXmlFile>
+					</suiteXmlFiles>
+				</configuration>
+			</plugin>
+		</plugins>
+
+	</build>
+	<dependencies>
+
+		<!-- Selenium Jars -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>${selenium.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-server</artifactId>
+			<version>${selenium.version}</version>
+		</dependency>
+
+		<!-- testng Jars -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>${testng}</version>
+		</dependency>
+
+		<!-- -->
+		<dependency>
+			<groupId>com.google.inject</groupId>
+			<artifactId>guice</artifactId>
+			<version>4.1.0</version>
+		</dependency>
+
+		<!-- Random String -->
+		<dependency>
+			<groupId>net.moznion</groupId>
+			<artifactId>random-string</artifactId>
+			<version>${random-string}</version>
+		</dependency>
+
+		<!-- Excel-POI Jars -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>${poi}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>${poi}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>${guava}</version>
+		</dependency>
+		
+		<!-- Extent Reports -->
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>${extentreports}</version>
+		</dependency>
+	</dependencies>
+
+</project>

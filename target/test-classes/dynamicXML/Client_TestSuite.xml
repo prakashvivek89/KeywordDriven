@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Client_TestSuite">
+  <test name="Client_001">
+    <classes>
+      <class name="com.SSPWorldWide.Framework.Adviser.Testcases.Client_TestSuite">
+        <methods>
+          <include name="Client_001"/>
+        </methods>
+      </class> <!-- com.SSPWorldWide.Framework.Adviser.Testcases.Client_TestSuite -->
+    </classes>
+  </test> <!-- Client_001 -->
+</suite> <!-- Client_TestSuite -->
