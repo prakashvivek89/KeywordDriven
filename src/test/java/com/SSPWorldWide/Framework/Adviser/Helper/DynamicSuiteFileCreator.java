@@ -17,19 +17,9 @@ import com.SSPWorldWide.Framework.Adviser.ReadExcel.Read_Testcase_File;
 
 public class DynamicSuiteFileCreator {
 
-	 String packageName = "com.SSPWorldWide.Framework.Adviser.Testcases";
-	private static final String dynamicXMLDir = System.getProperty("user.dir")
-			+ "/src/test/resources/dynamicXML";
+	String packageName = "com.SSPWorldWide.Framework.Adviser.Testcases";
+	private static final String dynamicXMLDir = System.getProperty("user.dir") + "/src/test/resources/dynamicXML";
 
-	public static void main(String[] args) throws Exception {
-//		DynamicClassCreator.createRegressionSuiteClasses();
-		for (String s : createWholeXML().keySet()) {
-			System.out.println(s);
-			System.out.println(createWholeXML().get(s).toXml());
-			XmlSuite suite =createWholeXML().get(s);
-			runTestNG(suite);
-		}
-	}
 	public static XmlSuite createXMLSuite(String suiteName, String tcID) throws Exception {
 		XmlSuite suite = new XmlSuite();
 		suite.setName(suiteName);
@@ -38,6 +28,8 @@ public class DynamicSuiteFileCreator {
 		List<XmlClass> classes = new ArrayList<XmlClass>();
 		XmlClass packageName = new XmlClass("com.SSPWorldWide.Framework.Adviser.Testcases." + suiteName);
 		XmlInclude method = new XmlInclude(tcID);
+		Reporting.createReport(suiteName);
+		Reporting.createExtentTest(tcID);
 		List<XmlInclude> inmethods = new ArrayList<XmlInclude>();
 		inmethods.add(method);
 		packageName.setIncludedMethods(inmethods);
@@ -91,5 +83,19 @@ public class DynamicSuiteFileCreator {
 		suites.add(suite);
 		tng.setXmlSuites(suites);
 		tng.run();
+	}
+
+	public static void runSingleSuite(String testSuiteName, String testcaseID) throws Exception {
+		DynamicClassCreator.createSingleTestCaseClass(testSuiteName, testcaseID);
+		XmlSuite suite = createXMLSuite(testSuiteName, testcaseID);
+		runTestNG(suite);
+	}
+
+	public static void runRegressionSuite() throws Exception {
+		DynamicClassCreator.createRegressionSuiteClasses();
+		for (String s : createWholeXML().keySet()) {
+			XmlSuite suite = createWholeXML().get(s);
+			runTestNG(suite);
+		}
 	}
 }

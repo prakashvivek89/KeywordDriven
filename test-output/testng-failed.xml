@@ -8,7 +8,6 @@
           <include name="beforeMethod"/>
           <include name="Login_002"/>
           <include name="tearDown"/>
-          <include name="afterTest"/>
           <include name="beforeSuite"/>
           <include name="afterSuite"/>
         </methods>

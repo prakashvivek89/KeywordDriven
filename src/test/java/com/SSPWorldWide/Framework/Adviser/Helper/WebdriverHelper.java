@@ -12,15 +12,15 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
-import org.testng.xml.XmlSuite;
 import com.SSPWorldWide.Framework.Adviser.Helper.PropReader;
 import com.SSPWorldWide.Framework.Adviser.ReadExcel.ReadObjectRepo;
+import com.SSPWorldWide.Framework.Adviser.ReadExcel.Read_ProjectReusables;
 import com.aventstack.extentreports.Status;
 import com.SSPWorldWide.Framework.Adviser.Helper.TakeScreenshotUtility;
 
@@ -122,17 +122,16 @@ public class WebdriverHelper {
 	public static void closeBrowser() {
 		driver.quit();
 	}
-
+	
 	@BeforeSuite
-	public void beforeSuite() {
-		
+	public void beforeSuite(ITestContext ctx) {
+		Reporting.createReport(ctx.getCurrentXmlTest().getSuite().getName());
 	}
-
 
 	@BeforeMethod
 	public void beforeMethod(Method method) {
 		launchDriver();
-		Reporting.test.log(Status.PASS, "Browser launched");
+		Reporting.createExtentTest(method.getName());
 		try {
 			Runtime.getRuntime().exec("RunDll32.exe InetCpl.cpl,ClearMyTracksByProcess 255");
 			Thread.sleep(5000);
@@ -142,21 +141,14 @@ public class WebdriverHelper {
 			e.printStackTrace();
 		}
 	}
-	
-	@AfterMethod
-	public void tearDown(ITestResult result) throws IOException
-	{
-	if(result.getStatus()==ITestResult.FAILURE)
-	{
-	String screenshot_path=TakeScreenshotUtility.captureScreenshot(driver, result.getName());
-	Reporting.test.addScreenCaptureFromPath(screenshot_path);
-	Reporting.test.log(Status.FAIL, result.getThrowable());
-	}
-	closeBrowser();
-	}
 
-	@AfterTest
-	public void afterTest() {
+	@AfterMethod
+	public void tearDown(ITestResult result) throws IOException {
+		if (result.getStatus() == ITestResult.FAILURE) {
+			String screenshot_path = TakeScreenshotUtility.captureScreenshot(driver, result.getName());
+			Reporting.test.addScreenCaptureFromPath(screenshot_path);
+			Reporting.test.log(Status.FAIL, Read_ProjectReusables.methodName + "<br />"+"<b>Failure reason :&emsp;</b>" +result.getThrowable());
+		}
 		if (driver != null) {
 			closeBrowser();
 		}
@@ -169,20 +161,12 @@ public class WebdriverHelper {
 			closeBrowser();
 		}
 	}
-	
+
 	public static void main(String[] args) throws Exception {
-		Reporting.createReport();
-		if(runRegression.equalsIgnoreCase("yes")) {
-			DynamicClassCreator.createRegressionSuiteClasses();
-			for (String s : DynamicSuiteFileCreator.createWholeXML().keySet()) {
-				XmlSuite suite = DynamicSuiteFileCreator.createWholeXML().get(s);
-				DynamicSuiteFileCreator.runTestNG(suite);
-			}
-		}
-		else {
-			Reporting.createExtentTest(testcaseID);
-			DynamicClassCreator.createSingleTestCaseClass(testSuiteName, testcaseID);
-			DynamicSuiteFileCreator.runTestNG(DynamicSuiteFileCreator.createXMLSuite(testSuiteName, testcaseID));
+		if (runRegression.equalsIgnoreCase("yes")) {
+			DynamicSuiteFileCreator.runRegressionSuite();
+		} else {
+			DynamicSuiteFileCreator.runSingleSuite(testSuiteName, testcaseID);
 		}
 	}
 

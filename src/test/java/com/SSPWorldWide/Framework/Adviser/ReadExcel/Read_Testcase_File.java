@@ -9,7 +9,6 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.ListMultimap;
-import org.apache.commons.io.FilenameUtils;
 
 public class Read_Testcase_File extends ExcelReusables {
 	public static ListMultimap<String, String> testcases_persuite = ArrayListMultimap.create();
@@ -70,48 +69,26 @@ public class Read_Testcase_File extends ExcelReusables {
 		workbook.close();
 	}
 
-	public static void main(String[] args) throws Exception {
-//		executeAllTestSuites();
-//		String testSuiteName = "Login_TestSuite";
-//		String testCaseID = "Login_001";
-//		readTestcaseFile(testSuiteName);
-//		for (String s : getTestCaseSteps(testCaseID)) {
-//			String testdata[] = null;
-//			for (String ss : s.split(",")) {
-//				if (ss.contains("##")) {
-//					testdata = ss.split("##")[1].split("\\|");
-//					System.out.println(ss.split("##")[0]);
-//					Read_ProjectReusables.getActionSteps(ss.split("##")[0], testdata);
-//				} else {
-//					System.out.println(ss.trim());
-//					Read_ProjectReusables.getActionSteps(ss.trim(), testdata);
+//	public static void executeAllTestSuites() throws Exception {
+//		String FilePath = System.getProperty("user.dir") + "/src/test/resources/testcases";
+//		File ExcelFileToRead = new File(FilePath);
+//		File[] files = ExcelFileToRead.listFiles();
+//		for (File f : files) {
+//			testcases_persuite.clear();
+//			readTestcaseFile(FilenameUtils.removeExtension(f.getName()));
+//			for (String TCid : testcases_persuite.keySet()) {
+//				for (String ss : getTestCaseSteps(TCid)) {
+//					String testdata[] = null;
+//					for (String sss : ss.split(",")) {
+//						if (sss.contains("##")) {
+//							testdata = sss.split("##")[1].split("\\|");
+//							Read_ProjectReusables.getActionSteps1(sss.split("##")[0], testdata);
+//						} else {
+//							Read_ProjectReusables.getActionSteps1(sss.trim(), testdata);
+//						}
+//					}
 //				}
 //			}
 //		}
-	}
-
-	public static void executeAllTestSuites() throws Exception {
-		String FilePath = System.getProperty("user.dir") + "/src/test/resources/testcases";
-		File ExcelFileToRead = new File(FilePath);
-		File[] files = ExcelFileToRead.listFiles();
-		for (File f : files) {
-			testcases_persuite.clear();
-//			System.out.println(FilenameUtils.removeExtension(f.getName()));
-			readTestcaseFile(FilenameUtils.removeExtension(f.getName()));
-			for (String TCid : testcases_persuite.keySet()) {
-//				System.out.println("testcase ID :" + TCid);
-				for (String ss : getTestCaseSteps(TCid)) {
-					String testdata[] = null;
-					for (String sss : ss.split(",")) {
-						if (sss.contains("##")) {
-							testdata = sss.split("##")[1].split("\\|");
-							Read_ProjectReusables.getActionSteps1(sss.split("##")[0], testdata);
-						} else {
-							Read_ProjectReusables.getActionSteps1(sss.trim(), testdata);
-						}
-					}
-				}
-			}
-		}
-	}
+//	}
 }

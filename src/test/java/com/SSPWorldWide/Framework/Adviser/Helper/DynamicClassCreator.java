@@ -3,13 +3,7 @@ package com.SSPWorldWide.Framework.Adviser.Helper;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
-//import java.lang.reflect.Method;
-//import java.net.URI;
-//import java.net.URL;
-//import java.net.URLClassLoader;
-
 import org.apache.commons.io.FilenameUtils;
-
 import com.SSPWorldWide.Framework.Adviser.ReadExcel.Read_Testcase_File;
 
 public class DynamicClassCreator {
@@ -17,10 +11,9 @@ public class DynamicClassCreator {
 	private static final String dynamicClassDir = System.getProperty("user.dir")
 			+ "/src/test/java/com/SSPWorldWide/Framework/Adviser/Testcases";
 	private static final String classText = "package com.SSPWorldWide.Framework.Adviser.Testcases;\r\n" + "\r\n"
-			+ "import org.testng.annotations.Test;\r\n"
-			+ "import com.SSPWorldWide.Framework.Adviser.Helper.*;\r\n"
+			+ "import org.testng.annotations.Test;\r\n" + "import com.SSPWorldWide.Framework.Adviser.Helper.*;\r\n"
 			+ "import com.SSPWorldWide.Framework.Adviser.ReadExcel.*;";
-	
+
 	public static void createRegressionSuiteClasses() throws Exception {
 		makeDirectory(dynamicClassDir);
 		File ExcelFileToRead = new File(excelTestcasePath);
@@ -52,7 +45,7 @@ public class DynamicClassCreator {
 			bufferedWriter.close();
 		}
 	}
-	
+
 	public static void createSingleTestCaseClass(String suiteName, String tcID) throws Exception {
 		String fileName = suiteName + ".java";
 		File myFIle = new File(dynamicClassDir, fileName);
@@ -94,14 +87,5 @@ public class DynamicClassCreator {
 			}
 		}
 	}
-	
-//	public static void dynamicLoader(File className) throws Exception {
-//		URI u = className.toURI();
-//	    URLClassLoader urlClassLoader = (URLClassLoader) ClassLoader.getSystemClassLoader();
-//	    Class urlClass = URLClassLoader.class;
-//	    Method method = urlClass.getDeclaredMethod("addURL", new Class[]{URL.class});
-//	    method.setAccessible(true);
-//	    method.invoke(urlClassLoader, new Object[]{u.toURL()});
-//	}
-	
+
 }

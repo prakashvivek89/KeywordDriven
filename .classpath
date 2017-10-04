@@ -60,8 +60,7 @@
   <classpathentry kind="var" path="M2_REPO/net/jcip/jcip-annotations/1.0/jcip-annotations-1.0.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/seleniumhq/selenium/jetty-repacked/9.4.5.v20170502/jetty-repacked-9.4.5.v20170502.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/yaml/snakeyaml/1.15/snakeyaml-1.15.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/testng/testng/6.8.21/testng-6.8.21.jar" sourcepath="M2_REPO/org/testng/testng/6.8.21/testng-6.8.21-sources.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/beanshell/bsh/2.0b4/bsh-2.0b4.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/testng/testng/6.11/testng-6.11.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/google/inject/guice/4.1.0/guice-4.1.0.jar"/>
   <classpathentry kind="var" path="M2_REPO/aopalliance/aopalliance/1.0/aopalliance-1.0.jar"/>
   <classpathentry kind="var" path="M2_REPO/net/moznion/random-string/1.1.0/random-string-1.1.0.jar"/>

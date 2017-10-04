@@ -10,4 +10,13 @@
       </class> <!-- com.SSPWorldWide.Framework.Adviser.Testcases.Login_TestSuite -->
     </classes>
   </test> <!-- Login_002 -->
+  <test name="Login_001">
+    <classes>
+      <class name="com.SSPWorldWide.Framework.Adviser.Testcases.Login_TestSuite">
+        <methods>
+          <include name="Login_001"/>
+        </methods>
+      </class> <!-- com.SSPWorldWide.Framework.Adviser.Testcases.Login_TestSuite -->
+    </classes>
+  </test> <!-- Login_001 -->
 </suite> <!-- Login_TestSuite -->

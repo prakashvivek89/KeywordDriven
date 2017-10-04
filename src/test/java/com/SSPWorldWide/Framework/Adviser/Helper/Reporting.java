@@ -10,9 +10,8 @@ public class Reporting extends WebdriverHelper{
 	public static ExtentTest test; 
 	private static ExtentHtmlReporter htmlReporter ;
 	
-	public static void createReport() {
-		htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/Report/extent-config.html");
-//		htmlReporter.loadXMLConfig(System.getProperty("user.dir") + "/Report/extent-config.xml");
+	public static void createReport(String suiteName) {
+		htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/Report/"+suiteName+".html");
 		htmlReporter.setAppendExisting(true);
 		report =  new ExtentReports();
 		report.attachReporter(htmlReporter);
@@ -23,7 +22,10 @@ public class Reporting extends WebdriverHelper{
 	}
 	
 	public static void createExtentTest(String testName) {
-		System.out.println("creating report");
 		test = report.createTest(testName);
+	}
+	
+	public static void endTest(ExtentTest test1) {
+		report.removeTest(test1);
 	}
 }

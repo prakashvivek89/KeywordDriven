@@ -16,7 +16,8 @@ import com.google.common.collect.ListMultimap;
 
 public class Read_ProjectReusables extends ExcelReusables {
 	static ListMultimap<String, String> ActionsPerMethod = ArrayListMultimap.create();
-
+	public static String methodName;
+	
 	public static ListMultimap<String, String> getMethodActions(String sheetName) throws Exception {
 		Workbook workbook = null;
 		String FilePath = System.getProperty("user.dir") + "/src/test/resources/projectResuables";
@@ -52,8 +53,8 @@ public class Read_ProjectReusables extends ExcelReusables {
 							for (int j = i; j <= totalNumber_Row; j++) {
 								if (!(isRowEmpty(sheet.getRow(j)))) {
 									String actionWithElement = getCellValueString(sheet.getRow(j).getCell(1)) + ","
-											+ getCellValueString(sheet.getRow(j).getCell(2))+ ","+
-											getCellValueString(sheet.getRow(j).getCell(3));
+											+ getCellValueString(sheet.getRow(j).getCell(2)) + ","
+											+ getCellValueString(sheet.getRow(j).getCell(3));
 									ActionsPerMethod.put(getCellValueString(sheet.getRow(i).getCell(0)),
 											actionWithElement);
 								} else {
@@ -73,57 +74,51 @@ public class Read_ProjectReusables extends ExcelReusables {
 
 	public static void getActionSteps(String actionStepsWithSheetName, String[] testdata) throws Exception {
 		String sheetName = actionStepsWithSheetName.split("\\.")[0];
-		String methodName = actionStepsWithSheetName.split("\\.")[1];
-			if (!(getMethodActions(sheetName).get(methodName).isEmpty())) {
-				for (String s : getMethodActions(sheetName).get(methodName)) {
-					System.out.println("method actions : " + s);
-					if (s.split(",").length>2) {
-//						System.out.println("testdata : "+TestDataReader.getTData(testdata[0], testdata[1], Integer.parseInt(testdata[2])).get(s.split(",")[2]));
-						ReadObjectRepo.getTypeAndValue(s.split(",")[1].trim());
-					}
-					else if (s.split(",").length>1){
-						ReadObjectRepo.getTypeAndValue(s.split(",")[1].trim());
-					}
+		methodName = actionStepsWithSheetName.split("\\.")[1];
+		if (!(getMethodActions(sheetName).get(methodName).isEmpty())) {
+			for (String s : getMethodActions(sheetName).get(methodName)) {
+				System.out.println("method actions : " + s);
+				if (s.split(",").length > 2) {
+					// System.out.println("testdata : "+TestDataReader.getTData(testdata[0],
+					// testdata[1], Integer.parseInt(testdata[2])).get(s.split(",")[2]));
+					ReadObjectRepo.getTypeAndValue(s.split(",")[1].trim());
+				} else if (s.split(",").length > 1) {
+					ReadObjectRepo.getTypeAndValue(s.split(",")[1].trim());
 				}
+			}
 		}
 	}
-	
+
 	public static void getActionSteps1(String actionStepsWithSheetName, String[] testdata) throws Exception {
 		String sheetName = actionStepsWithSheetName.split("\\.")[0];
-		String methodName = actionStepsWithSheetName.split("\\.")[1];
+		methodName = actionStepsWithSheetName.split("\\.")[1];
 		for (String s : getMethodActions(sheetName).get(methodName)) {
 			String data = "";
-			System.out.println(s);
-			if (s.split(",").length >2) {
-				if(s.split(",")[2].contains("{$[td]")){
+			if (s.split(",").length > 2) {
+				if (s.split(",")[2].contains("{$[td]")) {
 					String key = s.split(",")[2];
-					key = key.substring(6, key.length()-1);
+					key = key.substring(6, key.length() - 1);
 					data = TestDataReader.getTData(testdata[0], testdata[1], Integer.parseInt(testdata[2])).get(key);
-				}
-				else {
+				} else {
 					data = s.split(",")[2].trim();
 				}
-				
-				if(!(s.split(",")[1].trim().isEmpty())) {
-					CommonKeywords.getWebelementAction(s.split(",")[0].trim(), FindWebELement.getWebElement(s.split(",")[1].trim()), data);
-					Reporting.test.log(Status.PASS, methodName);
-				}
-				else {
+
+				if (!(s.split(",")[1].trim().isEmpty())) {
+					CommonKeywords.getWebelementAction(s.split(",")[0].trim(),
+							FindWebELement.getWebElement(s.split(",")[1].trim()), data);
+				} else {
 					CommonKeywords.getWebelementAction(s.split(",")[0].trim(), null, data);
-					
 				}
-			}
-			else if(s.split(",").length >1) {
-				System.out.println("Action : " +s.split(",")[0].trim()+"       ElementName "+s.split(",")[1].trim());
-				CommonKeywords.getWebelementAction(s.split(",")[0].trim(), FindWebELement.getWebElement(s.split(",")[1].trim()), data);
-				Reporting.test.log(Status.PASS, methodName);
-				
-			}
-			else {
+			} else if (s.split(",").length > 1) {
+//				System.out
+//						.println("Action : " + s.split(",")[0].trim() + "       ElementName " + s.split(",")[1].trim());
+				CommonKeywords.getWebelementAction(s.split(",")[0].trim(),
+						FindWebELement.getWebElement(s.split(",")[1].trim()), data);
+			} else {
 				CommonKeywords.getBrowserAction(s.split(",")[0].trim());
-				Reporting.test.log(Status.PASS, methodName);
 			}
 		}
+		Reporting.test.log(Status.PASS, methodName);
 	}
 
 }

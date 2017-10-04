@@ -18,8 +18,4 @@ public class TestcaseFlow {
 			}
 		}
 	}
-	
-	public static void runRegressionSuite() throws Exception {
-		Read_Testcase_File.executeAllTestSuites();
-	}
 }

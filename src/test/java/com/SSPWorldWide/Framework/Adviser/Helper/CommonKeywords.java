@@ -6,11 +6,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-import com.aventstack.extentreports.Status;
-
 public class CommonKeywords extends WebdriverHelper {
 	private static final long DRIVER_WAIT_TIME = 10;
 	protected static WebDriverWait wait = null;
+
 	public static void getWebelementAction(String action, By by, String testdata) throws Exception {
 		switch (action.toLowerCase()) {
 		case "entertext":
@@ -32,15 +31,15 @@ public class CommonKeywords extends WebdriverHelper {
 		case "currenturlcontains":
 			currentURLContains(testdata);
 			break;
-			
+
 		case "gettextandmatch":
 			getTextAndMatch(by, testdata);
 			break;
-			
+
 		case "waitforelementtodisappear":
 			waitforelementtodisappear(by);
 			break;
-			
+
 		case "":
 			throw new Exception("Please enter an action");
 
@@ -54,7 +53,7 @@ public class CommonKeywords extends WebdriverHelper {
 	}
 
 	private static void getTextAndMatch(By by, String text) {
-		Assert.assertEquals(wait.until(ExpectedConditions.visibilityOfElementLocated(by)).getText(), text);
+			Assert.assertEquals(wait.until(ExpectedConditions.visibilityOfElementLocated(by)).getText(), text);
 	}
 
 	private static void currentURLContains(String URL) {
@@ -63,7 +62,6 @@ public class CommonKeywords extends WebdriverHelper {
 
 	private static void elementIsNotPresent(By by) {
 		Assert.assertTrue(wait.until(ExpectedConditions.invisibilityOfElementLocated(by)));
-
 	}
 
 	private static void elementIsPresent(By by) {
@@ -75,25 +73,23 @@ public class CommonKeywords extends WebdriverHelper {
 	}
 
 	private static void navigateToURL(String URL) {
-			getWebDriver().navigate().to(URL);
-			getWebDriver().manage().window().maximize();
-			wait = new WebDriverWait(getWebDriver(), DRIVER_WAIT_TIME);
+		getWebDriver().navigate().to(URL);
+		getWebDriver().manage().window().maximize();
+		wait = new WebDriverWait(getWebDriver(), DRIVER_WAIT_TIME);
 	}
 
 	private static void waitForExpectedAndEnterText(By by, String text) throws Exception {
-		if(text.equalsIgnoreCase("randstring")) {
+		if (text.equalsIgnoreCase("randstring")) {
 			text = RandomStringUtils.randomAlphabetic(6);
-		}
-		else if(text.toLowerCase().contains("randint")){
-			if(text.contains("\\-")) {
+		} else if (text.toLowerCase().contains("randint")) {
+			if (text.contains("\\-")) {
 				int range = Integer.parseInt(text.split("")[1]);
 				text = RandomStringUtils.randomNumeric(range);
-			}
-			else {
+			} else {
 				throw new Exception("Please enter a range");
 			}
 		}
-		if(text.isEmpty()) {
+		if (text.isEmpty()) {
 			throw new Exception("Please enter the test data");
 		}
 		wait.until(ExpectedConditions.visibilityOfElementLocated(by)).clear();
