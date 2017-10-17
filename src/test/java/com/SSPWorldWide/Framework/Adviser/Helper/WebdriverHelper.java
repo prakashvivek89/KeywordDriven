@@ -38,10 +38,10 @@ public class WebdriverHelper {
 	public static String runRegression;
 	public static ListMultimap<String, ITestResult> finalReportingMap = ArrayListMultimap.create();
 	public static Map<String, String> getObjectRepo = new HashMap<String, String>();
-	public static int totalPassCount = 0;
-	public static int totalFailCount = 0;
-	public static int totalCount = 0;
-	public static int totalSkipCount = 0;
+	public static int totalPassCount =0;
+	public static int totalFailCount =0;
+	public static int totalCount =0;
+	public static int totalSkipCount =0 ;
 	static {
 		platformName = PropReader.readWebdriverConfig("platform");
 		browserName = PropReader.readWebdriverConfig("browser.name");
@@ -154,22 +154,28 @@ public class WebdriverHelper {
 	@AfterMethod(alwaysRun = true)
 	public void tearDown(ITestResult result) throws IOException {
 		if (result.getStatus() == ITestResult.FAILURE) {
+			totalFailCount = totalFailCount + 1;
 			String screenshot_path = TakeScreenshotUtility.captureScreenshot(driver, result.getName());
 			Reporting.test.addScreenCaptureFromPath(screenshot_path);
 			Reporting.test.log(Status.FAIL, Read_ProjectReusables.methodName + "<br />"
 					+ "<b>Failure reason :&emsp;</b>" + result.getThrowable());
+			if (driver != null) {
+				closeBrowser();
+			}
 		}
-		if (driver != null) {
-			closeBrowser();
+		
+		else {
+			totalPassCount = totalPassCount + 1;
+		}
+		if(result.getStatus() == ITestResult.SKIP) {
+			totalSkipCount = totalSkipCount +1;
 		}
 		finalReportingMap.put(result.getTestContext().getCurrentXmlTest().getSuite().getName(), result);
 	}
 
 	@AfterSuite
 	public void afterSuite(ITestContext ctx) {
-		totalCount = totalCount + ctx.getAllTestMethods().length;
-		totalPassCount = totalPassCount + ctx.getFailedTests().getAllResults().size();
-		totalFailCount = totalFailCount + ctx.getPassedTests().getAllResults().size();
+		totalCount = totalCount + ctx.getSuite().getAllMethods().size();
 		Reporting.flushReport();
 		if (driver != null) {
 			closeBrowser();

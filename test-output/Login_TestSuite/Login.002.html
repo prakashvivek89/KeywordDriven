@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Oct 13 09:09:09 IST 2017</td>
+<td>Started on:</td><td>Tue Oct 17 13:04:06 IST 2017</td>
 </tr>
-<tr><td>Total time:</td><td>19 seconds (19117 ms)</td>
+<tr><td>Total time:</td><td>21 seconds (21488 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,19 +76,19 @@ function toggleAllBoxes() {
 </tr>
 <tr>
 <td title='com.SSPWorldWide.Framework.Adviser.Testcases.Login_TestSuite.Login_002()'><b>Login_002</b><br>Test class: com.SSPWorldWide.Framework.Adviser.Testcases.Login_TestSuite<br>Test method: Login with a invalid user</td>
-<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.id: LoginDetailModel_UserName (tried for 10 second(s) with 500 MILLISECONDS interval)
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.cssSelector: .headerText.headerTextLogout&gt;a (tried for 10 second(s) with 500 MILLISECONDS interval)
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:232)
-	at com.SSPWorldWide.Framework.Adviser.Helper.CommonKeywords.waitForExpectedAndEnterText(CommonKeywords.java:95)
-	at com.SSPWorldWide.Framework.Adviser.Helper.CommonKeywords.getWebelementAction(CommonKeywords.java:16)
-	at com.SSPWorldWide.Framework.Adviser.ReadExcel.Read_ProjectReusables.getActionSteps1(Read_ProjectReusables.java:105)
-	at com.SSPWorldWide.Framework.Adviser.ReadExcel.TestcaseFlow.runSingleTest(TestcaseFlow.java:13)
+	at com.SSPWorldWide.Framework.Adviser.Helper.CommonKeywords.elementIsPresent(CommonKeywords.java:68)
+	at com.SSPWorldWide.Framework.Adviser.Helper.CommonKeywords.getWebelementAction(CommonKeywords.java:24)
+	at com.SSPWorldWide.Framework.Adviser.ReadExcel.Read_ProjectReusables.getActionSteps1(Read_ProjectReusables.java:111)
+	at com.SSPWorldWide.Framework.Adviser.ReadExcel.TestcaseFlow.runSingleTest(TestcaseFlow.java:16)
 	at com.SSPWorldWide.Framework.Adviser.Testcases.Login_TestSuite.Login_002(Login_TestSuite.java:9)
 	at com.SSPWorldWide.Framework.Adviser.Helper.DynamicSuiteFileCreator.runTestNG(DynamicSuiteFileCreator.java:81)
 	at com.SSPWorldWide.Framework.Adviser.Helper.DynamicSuiteFileCreator.runRegressionSuite(DynamicSuiteFileCreator.java:96)
-	at com.SSPWorldWide.Framework.Adviser.Helper.WebdriverHelper.launch(WebdriverHelper.java:183)
-	at com.SSPWorldWide.Framework.Adviser.Helper.Launcher.launchAutomation(Launcher.java:23)
-Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.id: LoginDetailModel_UserName
+	at com.SSPWorldWide.Framework.Adviser.Helper.WebdriverHelper.launch(WebdriverHelper.java:189)
+	at com.SSPWorldWide.Framework.Adviser.Helper.Launcher.launchAutomation(Launcher.java:22)
+Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.cssSelector: .headerText.headerTextLogout&gt;a
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: &apos;3.5.3&apos;, revision: &apos;a88d25fe6b&apos;, time: &apos;2017-08-29T12:42:44.417Z&apos;
 System info: host: &apos;IN00302&apos;, ip: &apos;192.168.74.75&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_102&apos;
@@ -100,15 +100,15 @@ Driver info: driver.version: unknown
 	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:206)
 	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:202)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
-	... 56 more
-... Removed 47 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1747702724", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1747702724'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.id: LoginDetailModel_UserName (tried for 10 second(s) with 500 MILLISECONDS interval)
+	... 59 more
+... Removed 50 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1882395698", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1882395698'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.cssSelector: .headerText.headerTextLogout&gt;a (tried for 10 second(s) with 500 MILLISECONDS interval)
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:232)
-	at com.SSPWorldWide.Framework.Adviser.Helper.CommonKeywords.waitForExpectedAndEnterText(CommonKeywords.java:95)
-	at com.SSPWorldWide.Framework.Adviser.Helper.CommonKeywords.getWebelementAction(CommonKeywords.java:16)
-	at com.SSPWorldWide.Framework.Adviser.ReadExcel.Read_ProjectReusables.getActionSteps1(Read_ProjectReusables.java:105)
-	at com.SSPWorldWide.Framework.Adviser.ReadExcel.TestcaseFlow.runSingleTest(TestcaseFlow.java:13)
+	at com.SSPWorldWide.Framework.Adviser.Helper.CommonKeywords.elementIsPresent(CommonKeywords.java:68)
+	at com.SSPWorldWide.Framework.Adviser.Helper.CommonKeywords.getWebelementAction(CommonKeywords.java:24)
+	at com.SSPWorldWide.Framework.Adviser.ReadExcel.Read_ProjectReusables.getActionSteps1(Read_ProjectReusables.java:111)
+	at com.SSPWorldWide.Framework.Adviser.ReadExcel.TestcaseFlow.runSingleTest(TestcaseFlow.java:16)
 	at com.SSPWorldWide.Framework.Adviser.Testcases.Login_TestSuite.Login_002(Login_TestSuite.java:9)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -134,8 +134,8 @@ Driver info: driver.version: unknown
 	at org.testng.TestNG.run(TestNG.java:1115)
 	at com.SSPWorldWide.Framework.Adviser.Helper.DynamicSuiteFileCreator.runTestNG(DynamicSuiteFileCreator.java:81)
 	at com.SSPWorldWide.Framework.Adviser.Helper.DynamicSuiteFileCreator.runRegressionSuite(DynamicSuiteFileCreator.java:96)
-	at com.SSPWorldWide.Framework.Adviser.Helper.WebdriverHelper.launch(WebdriverHelper.java:183)
-	at com.SSPWorldWide.Framework.Adviser.Helper.Launcher.launchAutomation(Launcher.java:23)
+	at com.SSPWorldWide.Framework.Adviser.Helper.WebdriverHelper.launch(WebdriverHelper.java:189)
+	at com.SSPWorldWide.Framework.Adviser.Helper.Launcher.launchAutomation(Launcher.java:22)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -158,10 +158,13 @@ Driver info: driver.version: unknown
 	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
 	at org.testng.TestNG.runSuites(TestNG.java:1144)
 	at org.testng.TestNG.run(TestNG.java:1115)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.id: LoginDetailModel_UserName
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:281)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:121)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.cssSelector: .headerText.headerTextLogout&gt;a
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: &apos;3.5.3&apos;, revision: &apos;a88d25fe6b&apos;, time: &apos;2017-08-29T12:42:44.417Z&apos;
 System info: host: &apos;IN00302&apos;, ip: &apos;192.168.74.75&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_102&apos;
@@ -173,10 +176,10 @@ Driver info: driver.version: unknown
 	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:206)
 	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:202)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
-	... 56 more
+	... 59 more
 </pre></div></td>
-<td>11</td>
-<td>com.SSPWorldWide.Framework.Adviser.Testcases.Login_TestSuite@56de6d6b</td></tr>
+<td>13</td>
+<td>com.SSPWorldWide.Framework.Adviser.Testcases.Login_TestSuite@2c2db130</td></tr>
 </table><p>
 </body>
 </html>

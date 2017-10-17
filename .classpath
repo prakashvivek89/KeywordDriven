@@ -59,7 +59,7 @@
 	<classpathentry kind="var" path="M2_REPO/net/jcip/jcip-annotations/1.0/jcip-annotations-1.0.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/seleniumhq/selenium/jetty-repacked/9.4.5.v20170502/jetty-repacked-9.4.5.v20170502.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/yaml/snakeyaml/1.15/snakeyaml-1.15.jar"/>
-	<classpathentry kind="var" path="M2_REPO/org/testng/testng/6.11/testng-6.11.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/testng/testng/6.11/testng-6.11.jar" sourcepath="SOURCE_ATTACHER/testng-6.11-sources.jar"/>
 	<classpathentry kind="var" path="M2_REPO/com/google/inject/guice/4.1.0/guice-4.1.0.jar"/>
 	<classpathentry kind="var" path="M2_REPO/aopalliance/aopalliance/1.0/aopalliance-1.0.jar"/>
 	<classpathentry kind="var" path="M2_REPO/net/moznion/random-string/1.1.0/random-string-1.1.0.jar"/>
@@ -70,7 +70,7 @@
 	<classpathentry kind="var" path="M2_REPO/org/apache/xmlbeans/xmlbeans/2.6.0/xmlbeans-2.6.0.jar"/>
 	<classpathentry kind="var" path="M2_REPO/stax/stax-api/1.0.1/stax-api-1.0.1.jar"/>
 	<classpathentry kind="var" path="M2_REPO/com/github/virtuald/curvesapi/1.04/curvesapi-1.04.jar"/>
-	<classpathentry kind="var" path="M2_REPO/com/aventstack/extentreports/3.0.7/extentreports-3.0.7.jar"/>
+	<classpathentry kind="var" path="M2_REPO/com/aventstack/extentreports/3.0.7/extentreports-3.0.7.jar" sourcepath="SOURCE_ATTACHER/extentreports-3.0.7-sources.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/freemarker/freemarker/2.3.23/freemarker-2.3.23.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/mongodb/mongodb-driver/3.3.0/mongodb-driver-3.3.0.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/mongodb/bson/3.3.0/bson-3.3.0.jar"/>
@@ -79,5 +79,6 @@
 	<classpathentry kind="var" path="M2_REPO/org/jfree/jfreechart/1.0.19/jfreechart-1.0.19.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/jfree/jcommon/1.0.23/jcommon-1.0.23.jar"/>
 	<classpathentry kind="lib" path="C:/Vivek/WorkSpace/AdviserKeywordDriven/lib/ExcelReportGenerator-4.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Vivek/WorkSpace/AdviserKeywordDriven/lib/ATExcelReport.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

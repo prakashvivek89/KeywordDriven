@@ -1,25 +1,19 @@
 package com.SSPWorldWide.Framework.Adviser.Helper;
 
-import java.awt.Color;
-import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.FileOutputStream;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 import org.apache.poi.ss.usermodel.BorderStyle;
 import org.apache.poi.ss.usermodel.FillPatternType;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFCellStyle;
-import org.apache.poi.xssf.usermodel.XSSFClientAnchor;
-import org.apache.poi.xssf.usermodel.XSSFDrawing;
 import org.apache.poi.xssf.usermodel.XSSFFont;
-import org.apache.poi.xssf.usermodel.XSSFPicture;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartUtilities;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.PiePlot;
-import org.jfree.data.general.DefaultPieDataset;
 import org.testng.ITestResult;
 
 public class ExcelReport {
@@ -122,6 +116,15 @@ public class ExcelReport {
 		short colCount = row.getLastCellNum();
 		return colCount;
 	}
+	
+	private static String getDateWithDay () {
+		final DateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		Calendar cal = Calendar.getInstance();
+		((SimpleDateFormat) sdf).applyPattern("EEEE d MMM yyyy");
+		String currentDate = sdf.format(cal.getTime());
+		System.out.println(currentDate);
+		return currentDate;
+	}
 
 	public static void generateFinalReportExcelSheet() throws Exception {
 		String total = String.valueOf(WebdriverHelper.totalCount);
@@ -131,49 +134,12 @@ public class ExcelReport {
 		String test_suite_startTime = String.valueOf(WebdriverHelper.totalSkipCount);
 		String test_suite_endTime = String.valueOf(WebdriverHelper.totalSkipCount);
 		workbook.getSheet(summarySheetName);
-		setCellHeaderData(summarySheetName, 0, 0, "Category", Short.valueOf((short) 13));
-		setCellHeaderData(summarySheetName, 1, 0, "Count", Short.valueOf((short) 13));
-		setCellData(summarySheetName, 0, 1, "Passed", Short.valueOf((short) 9));
-		setCellData(summarySheetName, 1, 1, passed, Short.valueOf((short) 9));
-		setCellData(summarySheetName, 0, 2, "Failed", Short.valueOf((short) 9));
-		setCellData(summarySheetName, 1, 2, failed, Short.valueOf((short) 9));
-		setCellData(summarySheetName, 0, 3, "Skipped", Short.valueOf((short) 9));
-		setCellData(summarySheetName, 1, 3, skipped, Short.valueOf((short) 9));
-		setCellHeaderData(summarySheetName, 0, 4, "Total", Short.valueOf((short) 49));
-		setCellHeaderData(summarySheetName, 1, 4, total, Short.valueOf((short) 49));
-		setCellData(summarySheetName, 0, 5, "Start Time", Short.valueOf((short) 9));
-		setCellData(summarySheetName, 1, 5, test_suite_startTime, Short.valueOf((short) 9));
-		setCellData(summarySheetName, 0, 6, "End Time", Short.valueOf((short) 9));
-		setCellData(summarySheetName, 1, 6, test_suite_endTime, Short.valueOf((short) 9));
-		setCellData(summarySheetName, 0, 7, "Duration", Short.valueOf((short) 9));
-		colCount = getColumnCount(summarySheetName);
-
-		 for (int my_pie_chart_data = 0; my_pie_chart_data < colCount; ++my_pie_chart_data) {
-		 sheet.autoSizeColumn((short) my_pie_chart_data);
-		 }
-
-		DefaultPieDataset arg53 = new DefaultPieDataset();
-		arg53.setValue("Passed", (double) Integer.parseInt(passed));
-		arg53.setValue("Failed", (double) Integer.parseInt(failed));
-		arg53.setValue("Skipped", (double) Integer.parseInt(skipped));
-		JFreeChart myPieChart = ChartFactory.createPieChart("Execution Status in PIE Chart", arg53, true, true, false);
-		PiePlot plot = (PiePlot) myPieChart.getPlot();
-		plot.setSectionPaint(1, new Color(255, 0, 0));
-		plot.setSectionPaint(0, new Color(0, 128, 0));
-		plot.setSectionPaint(2, new Color(255, 255, 0));
-		short width = 500;
-		short height = 500;
-		float quality = 5.0F;
-		ByteArrayOutputStream chart_out = new ByteArrayOutputStream();
-		ChartUtilities.writeChartAsJPEG(chart_out, quality, myPieChart, width, height);
-		int my_picture_id = workbook.addPicture(chart_out.toByteArray(), 5);
-		chart_out.close();
-		XSSFDrawing drawing = sheet.createDrawingPatriarch();
-		XSSFClientAnchor my_anchor = new XSSFClientAnchor();
-		my_anchor.setCol1(4);
-		my_anchor.setRow1(5);
-		XSSFPicture my_picture = drawing.createPicture(my_anchor, my_picture_id);
-		my_picture.resize();
+		setCellData("Summary", 2, 5, "Adviser11", Short.valueOf((short) 9));
+		setCellData("Summary", 2, 6, getDateWithDay(), Short.valueOf((short) 9));
+		setCellData("Summary", 5, 6,passed , Short.valueOf((short) 9));
+		setCellData("Summary", 5, 7,failed, Short.valueOf((short) 9));
+		setCellData("Summary", 5, 8,skipped, Short.valueOf((short) 9));
+		setCellData("Summary", 5, 9,total, Short.valueOf((short) 9));
 	}
 
 	public static void generateReport(String folderLocation, String xlFileName) throws Exception {
@@ -189,7 +155,7 @@ public class ExcelReport {
 			allResults = WebdriverHelper.finalReportingMap.get(moduleName);
 			generateModuleWiseReportExcelSheet(moduleName, allResults);
 		}
-		fos = new FileOutputStream(folderLocation + "/" + xlFileName);
+		fos = new FileOutputStream(folderLocation + File.separator + xlFileName);
 		workbook.write(fos);
 		workbook.close();
 		fos.close();

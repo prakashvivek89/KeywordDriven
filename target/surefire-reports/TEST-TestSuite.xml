@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="21.687" tests="2" errors="0" skipped="0" failures="1">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="75.507" tests="2" errors="0" skipped="0" failures="1">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_102\jre\bin"/>
@@ -26,7 +26,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 10"/>
-    <property name="classworlds.conf" value="C:\Vivek\WorkSpace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf8503483445506819341.tmp"/>
+    <property name="classworlds.conf" value="C:\Vivek\WorkSpace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf1802017495831138531.tmp"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
     <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_102\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/Program Files/Java/jre1.8.0_102/bin/server;C:/Program Files/Java/jre1.8.0_102/bin;C:/Program Files/Java/jre1.8.0_102/lib/amd64;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Vivek\Automation\apache-maven-3.5.0-bin\apache-maven-3.5.0\bin;C:\Program Files\Git\cmd;C:\Program Files\Java\jdk1.8.0_102\bin;C:\Program Files\node-v6.11.4-win-x64;C:\Vivek\Automation\eclipse-jee-oxygen-win_64\eclipse;;."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
@@ -60,10 +60,13 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="launchAutomation" classname="com.SSPWorldWide.Framework.Adviser.Helper.Launcher" time="21.06"/>
-  <testcase name="afterSuite" classname="com.SSPWorldWide.Framework.Adviser.Helper.Launcher" time="21.369">
-    <failure message="no freetype in java.library.path" type="java.lang.UnsatisfiedLinkError">java.lang.UnsatisfiedLinkError: no freetype in java.library.path
-	at com.SSPWorldWide.Framework.Adviser.Helper.Launcher.afterSuite(Launcher.java:35)
+  <testcase name="launchAutomation" classname="com.SSPWorldWide.Framework.Adviser.Helper.Launcher" time="74.37"/>
+  <testcase name="afterSuite" classname="com.SSPWorldWide.Framework.Adviser.Helper.Launcher" time="74.653">
+    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
+	at com.SSPWorldWide.Framework.Adviser.Helper.Launcher.afterSuite(Launcher.java:34)
 </failure>
+    <system-out><![CDATA[creating report
+Summary
+]]></system-out>
   </testcase>
 </testsuite>

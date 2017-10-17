@@ -16,6 +16,7 @@ public class TakeScreenshotUtility{
 		} catch (Exception e) {
 			System.out.println("Exception while taking screenshot " + e.getMessage());
 		}
-		return new File(System.getProperty("user.dir")+"/Report/" + screenshotName + ".png").getAbsolutePath();
+//		return new File(System.getProperty("user.dir")+"/Report/" + screenshotName + ".png").getAbsolutePath();
+		return new File(Launcher.currDir + File.separator + "Screenshots" + File.separator + screenshotName + ".png").getAbsolutePath();
 	}
 }

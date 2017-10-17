@@ -7,11 +7,11 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 import org.apache.commons.collections4.map.HashedMap;
+import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
-
 import com.aventstack.extentreports.Status;
 
 public class Launcher {
@@ -24,7 +24,9 @@ public class Launcher {
 	}
 
 	@BeforeSuite
-	public void beforeSuite() {
+	public void beforeSuite(ITestContext ctx) {
+		ctx.getStartDate().getTime();
+		
 		createReportFolder();
 	}
 
@@ -32,7 +34,8 @@ public class Launcher {
 	public void afterSuite() throws Exception {
 //		Xl.generateReport(currDir + File.separator, "Final.xlsx");
 //		ExcelReportGenerator.generateExcelReport("Final.xlsx", currDir + File.separator);
-		ExcelReport.generateReport(currDir + File.separator, "Final.xlsx");
+		ctx.getEndDate().getTime();
+		ExcelReport.generateReport(currDir , "Final.xlsx");
 	}
 
 	private static void createReportFolder() {
@@ -73,6 +76,7 @@ public class Launcher {
 		for (String suiteName : WebdriverHelper.finalReportingMap.keySet()) {
 			allResults = WebdriverHelper.finalReportingMap.get(suiteName);
 			Reporting.createExtentTest(suiteName);
+			System.out.println(allResults.size());
 			for (ITestResult result : allResults) {
 				if (result.getStatus() == ITestResult.FAILURE) {
 					Reporting.test.log(Status.FAIL,
