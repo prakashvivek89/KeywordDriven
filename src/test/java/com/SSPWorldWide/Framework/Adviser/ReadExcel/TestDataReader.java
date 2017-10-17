@@ -22,7 +22,7 @@ public class TestDataReader extends ExcelReusables{
 
 	public static Map<String, String> getTData(String excelName, String sheetName, int rownum) throws Exception {
 		Workbook workbook = null;
-		String FilePath = System.getProperty("user.dir") + "/src/test/resources/testdata/";
+		String FilePath = System.getProperty("user.dir") + "/ProjectAutomationFiles/testdata/";
 		File ExcelFileToRead = new File(FilePath);
 		File[] files = ExcelFileToRead.listFiles();
 		DataFormatter formatter = new DataFormatter();

@@ -20,7 +20,7 @@ public class Read_ProjectReusables extends ExcelReusables {
 	
 	public static ListMultimap<String, String> getMethodActions(String sheetName) throws Exception {
 		Workbook workbook = null;
-		String FilePath = System.getProperty("user.dir") + "/src/test/resources/projectResuables";
+		String FilePath = System.getProperty("user.dir") + "/ProjectAutomationFiles/projectResuables";
 		String excelName = "ProjectReusables";
 		File ExcelFileToRead = new File(FilePath);
 		File[] files = ExcelFileToRead.listFiles();
@@ -79,8 +79,6 @@ public class Read_ProjectReusables extends ExcelReusables {
 			for (String s : getMethodActions(sheetName).get(methodName)) {
 				System.out.println("method actions : " + s);
 				if (s.split(",").length > 2) {
-					// System.out.println("testdata : "+TestDataReader.getTData(testdata[0],
-					// testdata[1], Integer.parseInt(testdata[2])).get(s.split(",")[2]));
 					ReadObjectRepo.getTypeAndValue(s.split(",")[1].trim());
 				} else if (s.split(",").length > 1) {
 					ReadObjectRepo.getTypeAndValue(s.split(",")[1].trim());
@@ -110,8 +108,6 @@ public class Read_ProjectReusables extends ExcelReusables {
 					CommonKeywords.getWebelementAction(s.split(",")[0].trim(), null, data);
 				}
 			} else if (s.split(",").length > 1) {
-//				System.out
-//						.println("Action : " + s.split(",")[0].trim() + "       ElementName " + s.split(",")[1].trim());
 				CommonKeywords.getWebelementAction(s.split(",")[0].trim(),
 						FindWebELement.getWebElement(s.split(",")[1].trim()), data);
 			} else {

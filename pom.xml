@@ -21,6 +21,9 @@
 		<java-tools.jar>C:\Program Files\Java\jdk1.8.0_102\lib\tools.jar</java-tools.jar>
 		<guava>23.0</guava>
 		<extentreports>3.0.7</extentreports>
+		<jfreechart>1.0.19</jfreechart>
+		<jcommon>1.0.23</jcommon>
+		<xmlbeans>2.6.0</xmlbeans>
 	</properties>
 
 	<build>
@@ -37,16 +40,16 @@
 					<target>${java-version}</target>
 				</configuration>
 			</plugin>
-			 <plugin>
+
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>${maven-surefire-plugin}</version>
 				<configuration>
-				<includes>
-						<include>src/test/java/com/SSPWorldWide/Framework?Adviser/Helper/WebdriverHelper.class</include>
-					</includes>
+					<!-- <includes> <include>src/test/java/com/SSPWorldWide/Framework/Adviser/Helper/Launcher.class</include> 
+						</includes> -->
 					<suiteXmlFiles>
-						<suiteXmlFile>src/test/resources/dynamicXML/Client_TestSuite.xml</suiteXmlFile>
+						<suiteXmlFile>Launch.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
@@ -100,16 +103,39 @@
 			<version>${poi}</version>
 		</dependency>
 		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml-schemas</artifactId>
+			<version>${poi}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.xmlbeans</groupId>
+			<artifactId>xmlbeans</artifactId>
+			<version>${xmlbeans}</version>
+		</dependency>
+		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
 			<version>${guava}</version>
 		</dependency>
-		
+
 		<!-- Extent Reports -->
 		<dependency>
 			<groupId>com.aventstack</groupId>
 			<artifactId>extentreports</artifactId>
 			<version>${extentreports}</version>
+		</dependency>
+
+		<!-- JfreeJars -->
+		<dependency>
+			<groupId>org.jfree</groupId>
+			<artifactId>jfreechart</artifactId>
+			<version>${jfreechart}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jfree</groupId>
+			<artifactId>jcommon</artifactId>
+			<version>${jcommon}</version>
 		</dependency>
 	</dependencies>
 

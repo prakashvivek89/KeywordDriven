@@ -14,7 +14,7 @@ public class ReadObjectRepo extends ExcelReusables {
 
 	public static Map<String, String> getORData() throws Exception {
 		Workbook workbook = null;
-		String FilePath = System.getProperty("user.dir") + "/src/test/resources/objectRepo";
+		String FilePath = System.getProperty("user.dir") + "/ProjectAutomationFiles/objectRepo";
 		String excelName = "ObjectRepo";
 		File ExcelFileToRead = new File(FilePath);
 		File[] files = ExcelFileToRead.listFiles();

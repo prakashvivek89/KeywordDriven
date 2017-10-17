@@ -4,8 +4,8 @@ import org.testng.annotations.Test;
 import com.SSPWorldWide.Framework.Adviser.Helper.*;
 import com.SSPWorldWide.Framework.Adviser.ReadExcel.*;
 public class Client_TestSuite extends WebdriverHelper{
- @Test
+ @Test(description = "Personal Client Creation")
  public static void Client_001() throws Exception{
-TestcaseFlow.runSingleTest("Client_TestSuite", "Client_001");
+TestcaseFlow.runSingleTest("Client_TestSuite", "Client.001");
 }
 }

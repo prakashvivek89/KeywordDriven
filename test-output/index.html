@@ -102,7 +102,7 @@
                     <div class="method-list-content failed suite-Login_TestSuite">
                       <span>
                         <img width="3%" src="failed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Login_TestSuite" title="com.SSPWorldWide.Framework.Adviser.Testcases.Login_TestSuite" hash-for-method="Login_002">Login_002</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Login_TestSuite" title="com.SSPWorldWide.Framework.Adviser.Testcases.Login_TestSuite" hash-for-method="Login_001">Login_001</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Login_TestSuite -->
@@ -125,21 +125,22 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="Login_002">
-                  </a> <!-- Login_002 -->
-                  <span class="method-name">Login_002</span>
-                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.cssSelector: .headerText.headerTextLogout&gt;a (tried for 10 second(s) with 500 MILLISECONDS interval)
+                  <a name="Login_001">
+                  </a> <!-- Login_001 -->
+                  <span class="method-name">Login_001</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.id: LoginDetailModel_UserName (tried for 10 second(s) with 500 MILLISECONDS interval)
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:232)
-	at com.SSPWorldWide.Framework.Adviser.Helper.CommonKeywords.elementIsPresent(CommonKeywords.java:68)
-	at com.SSPWorldWide.Framework.Adviser.Helper.CommonKeywords.getWebelementAction(CommonKeywords.java:24)
-	at com.SSPWorldWide.Framework.Adviser.ReadExcel.Read_ProjectReusables.getActionSteps1(Read_ProjectReusables.java:115)
-	at com.SSPWorldWide.Framework.Adviser.ReadExcel.TestcaseFlow.runSingleTest(TestcaseFlow.java:16)
-	at com.SSPWorldWide.Framework.Adviser.Testcases.Login_TestSuite.Login_002(Login_TestSuite.java:9)
-	at com.SSPWorldWide.Framework.Adviser.Helper.DynamicSuiteFileCreator.runTestNG(DynamicSuiteFileCreator.java:85)
-	at com.SSPWorldWide.Framework.Adviser.Helper.DynamicSuiteFileCreator.runSingleSuite(DynamicSuiteFileCreator.java:91)
-	at com.SSPWorldWide.Framework.Adviser.Helper.WebdriverHelper.main(WebdriverHelper.java:169)
-Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.cssSelector: .headerText.headerTextLogout&gt;a
+	at com.SSPWorldWide.Framework.Adviser.Helper.CommonKeywords.waitForExpectedAndEnterText(CommonKeywords.java:95)
+	at com.SSPWorldWide.Framework.Adviser.Helper.CommonKeywords.getWebelementAction(CommonKeywords.java:16)
+	at com.SSPWorldWide.Framework.Adviser.ReadExcel.Read_ProjectReusables.getActionSteps1(Read_ProjectReusables.java:105)
+	at com.SSPWorldWide.Framework.Adviser.ReadExcel.TestcaseFlow.runSingleTest(TestcaseFlow.java:13)
+	at com.SSPWorldWide.Framework.Adviser.Testcases.Login_TestSuite.Login_001(Login_TestSuite.java:9)
+	at com.SSPWorldWide.Framework.Adviser.Helper.DynamicSuiteFileCreator.runTestNG(DynamicSuiteFileCreator.java:81)
+	at com.SSPWorldWide.Framework.Adviser.Helper.DynamicSuiteFileCreator.runSingleSuite(DynamicSuiteFileCreator.java:88)
+	at com.SSPWorldWide.Framework.Adviser.Helper.WebdriverHelper.launch(WebdriverHelper.java:192)
+	at com.SSPWorldWide.Framework.Adviser.Helper.Launcher.launchAutomation(Launcher.java:23)
+Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.id: LoginDetailModel_UserName
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: &apos;3.5.3&apos;, revision: &apos;a88d25fe6b&apos;, time: &apos;2017-08-29T12:42:44.417Z&apos;
 System info: host: &apos;IN00302&apos;, ip: &apos;192.168.74.75&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_102&apos;
@@ -151,9 +152,11 @@ Driver info: driver.version: unknown
 	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:206)
 	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:202)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
-	... 30 more
-... Removed 22 stack frames
+	... 59 more
+... Removed 50 stack frames
 </div> <!-- stack-trace -->
+                  <em>
+(Login with a valid user)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -167,15 +170,15 @@ Driver info: driver.version: unknown
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite name=&quot;Login_TestSuite&quot;&gt;
-  &lt;test name=&quot;Login_002&quot;&gt;
+  &lt;test name=&quot;Login.001&quot;&gt;
     &lt;classes&gt;
       &lt;class name=&quot;com.SSPWorldWide.Framework.Adviser.Testcases.Login_TestSuite&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;Login_002&quot;/&gt;
+          &lt;include name=&quot;Login.001&quot;/&gt;
         &lt;/methods&gt;
       &lt;/class&gt; &lt;!-- com.SSPWorldWide.Framework.Adviser.Testcases.Login_TestSuite --&gt;
     &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- Login_002 --&gt;
+  &lt;/test&gt; &lt;!-- Login.001 --&gt;
 &lt;/suite&gt; &lt;!-- Login_TestSuite --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -187,7 +190,7 @@ Driver info: driver.version: unknown
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Login_002 (1 class)</span>
+                <span class="test-name">Login.001 (1 class)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -215,14 +218,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'Login_002')
+data.setCell(0, 1, 'Login_001')
 data.setCell(0, 2, 'com.SSPWorldWide.Framework.Adviser.Testcases.Login_TestSuite')
-data.setCell(0, 3, 13783);
+data.setCell(0, 3, 11274);
 window.suiteTableData['Login_TestSuite']= { tableData: data, tableDiv: 'times-div-Login_TestSuite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 13 seconds</span>
+              <span class="suite-total-time">Total running time: 11 seconds</span>
               <div id="times-div-Login_TestSuite">
               </div> <!-- times-div-Login_TestSuite -->
             </div> <!-- times-div -->
@@ -237,16 +240,9 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Login_TestSuite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">1 ignored method</span>
+            <span class="header-content">0 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
-            <div class="ignored-class-div">
-              <span class="ignored-class-name">com.SSPWorldWide.Framework.Adviser.Testcases.Login_TestSuite</span>
-              <div class="ignored-methods-div">
-                <span class="ignored-method-name">Login_001</span>
-                <br/>
-              </div> <!-- ignored-methods-div -->
-            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Login_TestSuite" class="panel">
@@ -257,26 +253,26 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">com.SSPWorldWide.Framework.Adviser.Testcases.Login_TestSuite</div> <!-- chronological-class-name -->
               <div class="configuration-suite before">
-                <span class="method-name">beforeSuite(org.testng.TestRunner@13c612bd)</span>
+                <span class="method-name">beforeSuite(org.testng.TestRunner@659925f4)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
               <div class="configuration-method before">
-                <span class="method-name">beforeMethod(public static void com.SSPWorldWide.Framework.Adviser.Testcases.Login_TestSuite.Login_002() throws j...)</span>
-                <span class="method-start">32 ms</span>
+                <span class="method-name">beforeMethod(public static void com.SSPWorldWide.Framework.Adviser.Testcases.Login_TestSuite.Login_001() throws j...)</span>
+                <span class="method-start">172 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">Login_002</span>
-                <span class="method-start">7524 ms</span>
+                <span class="method-name">Login_001</span>
+                <span class="method-start">7665 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=Login_002 status=FAILURE method=Login_TestSuite.Login_002()[pri:0, instance:com.SSP...)</span>
-                <span class="method-start">21307 ms</span>
+                <span class="method-name">tearDown([TestResult name=Login_001 status=FAILURE method=Login_TestSuite.Login_001()[pri:0, instance:com.SSP...)</span>
+                <span class="method-start">18939 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-suite after">
-                <span class="method-name">afterSuite</span>
-                <span class="method-start">22665 ms</span>
+                <span class="method-name">afterSuite(org.testng.TestRunner@659925f4)</span>
+                <span class="method-start">19657 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

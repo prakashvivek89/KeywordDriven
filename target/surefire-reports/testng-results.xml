@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Automation" duration-ms="21060" started-at="2017-10-16T03:37:01Z" finished-at="2017-10-16T03:37:22Z">
+    <groups>
+    </groups>
+    <test name="Automation" duration-ms="21060" started-at="2017-10-16T03:37:01Z" finished-at="2017-10-16T03:37:22Z">
+      <class name="com.SSPWorldWide.Framework.Adviser.Helper.Launcher">
+        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:com.SSPWorldWide.Framework.Adviser.Helper.Launcher@4157f54e]" name="beforeSuite" is-config="true" duration-ms="46" started-at="2017-10-16T09:07:01Z" finished-at="2017-10-16T09:07:01Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeSuite -->
+        <test-method status="PASS" signature="launchAutomation()[pri:0, instance:com.SSPWorldWide.Framework.Adviser.Helper.Launcher@4157f54e]" name="launchAutomation" duration-ms="21060" started-at="2017-10-16T09:07:01Z" finished-at="2017-10-16T09:07:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchAutomation -->
+        <test-method status="FAIL" signature="afterSuite()[pri:0, instance:com.SSPWorldWide.Framework.Adviser.Helper.Launcher@4157f54e]" name="afterSuite" is-config="true" duration-ms="291" started-at="2017-10-16T09:07:22Z" finished-at="2017-10-16T09:07:22Z">
+          <exception class="java.lang.UnsatisfiedLinkError">
+            <message>
+              <![CDATA[no freetype in java.library.path]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.UnsatisfiedLinkError: no freetype in java.library.path
+	at java.lang.ClassLoader.loadLibrary(ClassLoader.java:1867)
+	at java.lang.Runtime.loadLibrary0(Runtime.java:870)
+	at java.lang.System.loadLibrary(System.java:1122)
+	at sun.font.FontManagerNativeLibrary$1.run(FontManagerNativeLibrary.java:59)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.font.FontManagerNativeLibrary.<clinit>(FontManagerNativeLibrary.java:32)
+	at sun.font.SunFontManager$1.run(SunFontManager.java:339)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.font.SunFontManager.<clinit>(SunFontManager.java:335)
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:348)
+	at sun.font.FontManagerFactory$1.run(FontManagerFactory.java:82)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.font.FontManagerFactory.getInstance(FontManagerFactory.java:74)
+	at java.awt.Font.getFont2D(Font.java:491)
+	at java.awt.Font.canDisplayUpTo(Font.java:2060)
+	at java.awt.font.TextLayout.singleFont(TextLayout.java:470)
+	at java.awt.font.TextLayout.<init>(TextLayout.java:531)
+	at org.apache.poi.ss.util.SheetUtil.getDefaultCharWidth(SheetUtil.java:275)
+	at org.apache.poi.ss.util.SheetUtil.getColumnWidth(SheetUtil.java:250)
+	at org.apache.poi.ss.util.SheetUtil.getColumnWidth(SheetUtil.java:235)
+	at org.apache.poi.xssf.usermodel.XSSFSheet.autoSizeColumn(XSSFSheet.java:507)
+	at org.apache.poi.xssf.usermodel.XSSFSheet.autoSizeColumn(XSSFSheet.java:489)
+	at com.SSPWorldWide.Framework.Adviser.Helper.ExcelReport.generateFinalReportExcelSheet(ExcelReport.java:196)
+	at com.SSPWorldWide.Framework.Adviser.Helper.ExcelReport.generateReport(ExcelReport.java:232)
+	at com.SSPWorldWide.Framework.Adviser.Helper.Launcher.afterSuite(Launcher.java:35)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:146)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:350)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:281)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:121)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.UnsatisfiedLinkError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterSuite -->
+      </class> <!-- com.SSPWorldWide.Framework.Adviser.Helper.Launcher -->
+    </test> <!-- Automation -->
+  </suite> <!-- Automation -->
+</testng-results>

@@ -18,10 +18,13 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Test;
 import com.SSPWorldWide.Framework.Adviser.Helper.PropReader;
 import com.SSPWorldWide.Framework.Adviser.ReadExcel.ReadObjectRepo;
 import com.SSPWorldWide.Framework.Adviser.ReadExcel.Read_ProjectReusables;
 import com.aventstack.extentreports.Status;
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.ListMultimap;
 import com.SSPWorldWide.Framework.Adviser.Helper.TakeScreenshotUtility;
 
 public class WebdriverHelper {
@@ -33,7 +36,12 @@ public class WebdriverHelper {
 	public static String testcaseID;
 	public static String testSuiteName;
 	public static String runRegression;
+	public static ListMultimap<String, ITestResult> finalReportingMap = ArrayListMultimap.create();
 	public static Map<String, String> getObjectRepo = new HashMap<String, String>();
+	public static int totalPassCount = 0;
+	public static int totalFailCount = 0;
+	public static int totalCount = 0;
+	public static int totalSkipCount = 0;
 	static {
 		platformName = PropReader.readWebdriverConfig("platform");
 		browserName = PropReader.readWebdriverConfig("browser.name");
@@ -122,16 +130,17 @@ public class WebdriverHelper {
 	public static void closeBrowser() {
 		driver.quit();
 	}
-	
+
 	@BeforeSuite
 	public void beforeSuite(ITestContext ctx) {
 		Reporting.createReport(ctx.getCurrentXmlTest().getSuite().getName());
 	}
 
-	@BeforeMethod
+	@BeforeMethod(alwaysRun = true)
 	public void beforeMethod(Method method) {
+		Test test = method.getAnnotation(Test.class);
+		Reporting.createExtentTest(method.getName() + "&ensp;:&ensp;" + test.description());
 		launchDriver();
-		Reporting.createExtentTest(method.getName());
 		try {
 			Runtime.getRuntime().exec("RunDll32.exe InetCpl.cpl,ClearMyTracksByProcess 255");
 			Thread.sleep(5000);
@@ -142,32 +151,48 @@ public class WebdriverHelper {
 		}
 	}
 
-	@AfterMethod
+	@AfterMethod(alwaysRun = true)
 	public void tearDown(ITestResult result) throws IOException {
 		if (result.getStatus() == ITestResult.FAILURE) {
 			String screenshot_path = TakeScreenshotUtility.captureScreenshot(driver, result.getName());
 			Reporting.test.addScreenCaptureFromPath(screenshot_path);
-			Reporting.test.log(Status.FAIL, Read_ProjectReusables.methodName + "<br />"+"<b>Failure reason :&emsp;</b>" +result.getThrowable());
+			Reporting.test.log(Status.FAIL, Read_ProjectReusables.methodName + "<br />"
+					+ "<b>Failure reason :&emsp;</b>" + result.getThrowable());
 		}
 		if (driver != null) {
 			closeBrowser();
 		}
+		finalReportingMap.put(result.getTestContext().getCurrentXmlTest().getSuite().getName(), result);
 	}
 
 	@AfterSuite
-	public void afterSuite() {
+	public void afterSuite(ITestContext ctx) {
+		totalCount = totalCount + ctx.getAllTestMethods().length;
+		totalPassCount = totalPassCount + ctx.getFailedTests().getAllResults().size();
+		totalFailCount = totalFailCount + ctx.getPassedTests().getAllResults().size();
 		Reporting.flushReport();
 		if (driver != null) {
 			closeBrowser();
 		}
 	}
 
-	public static void main(String[] args) throws Exception {
+	public static void launch() {
 		if (runRegression.equalsIgnoreCase("yes")) {
-			DynamicSuiteFileCreator.runRegressionSuite();
+			System.out.println("running whole suite");
+			try {
+				DynamicSuiteFileCreator.runRegressionSuite();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		} else {
-			DynamicSuiteFileCreator.runSingleSuite(testSuiteName, testcaseID);
+			System.out.println("running single testcase");
+			try {
+				System.out.println("testsuiteName is  : "+testSuiteName);
+				System.out.println("testcaseID is  : "+testcaseID);
+				DynamicSuiteFileCreator.runSingleSuite(testSuiteName, testcaseID);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
-
 }

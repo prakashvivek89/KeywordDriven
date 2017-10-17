@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.apache.commons.io.FilenameUtils;
 import org.testng.TestNG;
 import org.testng.xml.XmlClass;
@@ -28,8 +27,6 @@ public class DynamicSuiteFileCreator {
 		List<XmlClass> classes = new ArrayList<XmlClass>();
 		XmlClass packageName = new XmlClass("com.SSPWorldWide.Framework.Adviser.Testcases." + suiteName);
 		XmlInclude method = new XmlInclude(tcID);
-		Reporting.createReport(suiteName);
-		Reporting.createExtentTest(tcID);
 		List<XmlInclude> inmethods = new ArrayList<XmlInclude>();
 		inmethods.add(method);
 		packageName.setIncludedMethods(inmethods);
@@ -43,8 +40,7 @@ public class DynamicSuiteFileCreator {
 	}
 
 	public static Map<String, XmlSuite> createWholeXML() throws Exception {
-		DynamicClassCreator.makeDirectory(dynamicXMLDir);
-		String FilePath = System.getProperty("user.dir") + "/src/test/resources/testcases";
+		String FilePath = System.getProperty("user.dir") + "/ProjectAutomationFiles/testcases";
 		File ExcelFileToRead = new File(FilePath);
 		File[] files = ExcelFileToRead.listFiles();
 		Map<String, XmlSuite> regressionSuites = new HashMap<String, XmlSuite>();
@@ -87,12 +83,14 @@ public class DynamicSuiteFileCreator {
 
 	public static void runSingleSuite(String testSuiteName, String testcaseID) throws Exception {
 		DynamicClassCreator.createSingleTestCaseClass(testSuiteName, testcaseID);
+		DynamicClassCreator.makeDirectory(dynamicXMLDir);
 		XmlSuite suite = createXMLSuite(testSuiteName, testcaseID);
 		runTestNG(suite);
 	}
 
 	public static void runRegressionSuite() throws Exception {
 		DynamicClassCreator.createRegressionSuiteClasses();
+		DynamicClassCreator.makeDirectory(dynamicXMLDir);
 		for (String s : createWholeXML().keySet()) {
 			XmlSuite suite = createWholeXML().get(s);
 			runTestNG(suite);

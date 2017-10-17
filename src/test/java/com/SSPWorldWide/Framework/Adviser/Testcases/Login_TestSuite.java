@@ -4,12 +4,8 @@ import org.testng.annotations.Test;
 import com.SSPWorldWide.Framework.Adviser.Helper.*;
 import com.SSPWorldWide.Framework.Adviser.ReadExcel.*;
 public class Login_TestSuite extends WebdriverHelper{
- @Test
- public static void Login_002() throws Exception{
-TestcaseFlow.runSingleTest("Login_TestSuite", "Login_002");
-}
- @Test
+ @Test(description = "Login with a valid user")
  public static void Login_001() throws Exception{
-TestcaseFlow.runSingleTest("Login_TestSuite", "Login_001");
+TestcaseFlow.runSingleTest("Login_TestSuite", "Login.001");
 }
 }

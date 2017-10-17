@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Login_TestSuite">
-  <test name="Login_002">
+  <test name="Login.001">
     <classes>
       <class name="com.SSPWorldWide.Framework.Adviser.Testcases.Login_TestSuite">
         <methods>
-          <include name="Login_002"/>
+          <include name="Login.001"/>
         </methods>
       </class> <!-- com.SSPWorldWide.Framework.Adviser.Testcases.Login_TestSuite -->
     </classes>
-  </test> <!-- Login_002 -->
+  </test> <!-- Login.001 -->
 </suite> <!-- Login_TestSuite -->

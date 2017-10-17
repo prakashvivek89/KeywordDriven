@@ -1,7 +1,10 @@
 package com.SSPWorldWide.Framework.Adviser.ReadExcel;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -12,18 +15,19 @@ import com.google.common.collect.ListMultimap;
 
 public class Read_Testcase_File extends ExcelReusables {
 	public static ListMultimap<String, String> testcases_persuite = ArrayListMultimap.create();
+	public static Map<String, String> scenarioNames = new HashMap<String, String>();
 
 	public static List<String> getTestCaseSteps(String testcaseID) throws Exception {
 		if (!(testcases_persuite.get(testcaseID).isEmpty())) {
 			return testcases_persuite.get(testcaseID);
 		} else {
-			throw new Exception("Testcase ID '"+testcaseID+"' does not exist");
+			throw new Exception("Testcase ID '" + testcaseID + "' does not exist");
 		}
 	}
 
 	public static void readTestcaseFile(String suiteName) throws Exception {
 		Workbook workbook = null;
-		String FilePath = System.getProperty("user.dir") + "/src/test/resources/testcases";
+		String FilePath = System.getProperty("user.dir") + "/ProjectAutomationFiles/testcases";
 		File ExcelFileToRead = new File(FilePath);
 		File[] files = ExcelFileToRead.listFiles();
 		if ((new File(FilePath, (suiteName.trim() + ".xlsx")).exists())
@@ -50,6 +54,8 @@ public class Read_Testcase_File extends ExcelReusables {
 					} else {
 						for (int j = i; j <= totalNumber_Row; j++) {
 							if (!(isRowEmpty(sheet.getRow(j)))) {
+								scenarioNames.put(getCellValueString(sheet.getRow(i).getCell(1)),
+										getCellValueString(sheet.getRow(i).getCell(2)));
 								if ((getCellValueString(sheet.getRow(j).getCell(5)).isEmpty())) {
 									testcases_persuite.put(getCellValueString(sheet.getRow(i).getCell(1)),
 											getCellValueString(sheet.getRow(j).getCell(4)));
@@ -68,27 +74,4 @@ public class Read_Testcase_File extends ExcelReusables {
 		}
 		workbook.close();
 	}
-
-//	public static void executeAllTestSuites() throws Exception {
-//		String FilePath = System.getProperty("user.dir") + "/src/test/resources/testcases";
-//		File ExcelFileToRead = new File(FilePath);
-//		File[] files = ExcelFileToRead.listFiles();
-//		for (File f : files) {
-//			testcases_persuite.clear();
-//			readTestcaseFile(FilenameUtils.removeExtension(f.getName()));
-//			for (String TCid : testcases_persuite.keySet()) {
-//				for (String ss : getTestCaseSteps(TCid)) {
-//					String testdata[] = null;
-//					for (String sss : ss.split(",")) {
-//						if (sss.contains("##")) {
-//							testdata = sss.split("##")[1].split("\\|");
-//							Read_ProjectReusables.getActionSteps1(sss.split("##")[0], testdata);
-//						} else {
-//							Read_ProjectReusables.getActionSteps1(sss.trim(), testdata);
-//						}
-//					}
-//				}
-//			}
-//		}
-//	}
 }

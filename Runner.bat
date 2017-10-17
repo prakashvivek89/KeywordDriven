@@ -1,2 +1,1 @@
-call mvn clean install 
-cmd /k
+call mvn clean install
