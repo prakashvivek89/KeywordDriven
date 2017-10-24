@@ -1,4 +1,3 @@
-com\SSPWorldWide\Framework\Adviser\Testcases\Client_TestSuite.class
 com\SSPWorldWide\Framework\Adviser\Helper\CommonKeywords.class
 com\SSPWorldWide\Framework\Adviser\ReadExcel\Read_ProjectReusables.class
 com\SSPWorldWide\Framework\Adviser\ReadExcel\Read_Testcase_File.class
@@ -13,6 +12,5 @@ com\SSPWorldWide\Framework\Adviser\Helper\TakeScreenshotUtility.class
 com\SSPWorldWide\Framework\Adviser\Helper\Reporting.class
 com\SSPWorldWide\Framework\Adviser\Helper\Launcher.class
 com\SSPWorldWide\Framework\Adviser\Helper\PropReader.class
-com\SSPWorldWide\Framework\Adviser\Testcases\Login_TestSuite.class
 com\SSPWorldWide\Framework\Adviser\Helper\WebdriverHelper.class
 com\SSPWorldWide\Framework\Adviser\ReadExcel\TestcaseFlow.class
