@@ -126,7 +126,7 @@ public class DynamicClassCreator {
 					+ "/target/test-classes/com/SSPWorldWide/Framework/Adviser/Testcases");
 			File[] files = file.listFiles();
 			for (File f : files) {
-				System.out.println(f.getName().split("\\.")[0]);
+//				System.out.println(f.getName().split("\\.")[0]);
 				URL url = f.toURI().toURL();
 				URL[] urls = new URL[] { url };
 				URLClassLoader cl = URLClassLoader.newInstance(urls);

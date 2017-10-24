@@ -1,15 +1,9 @@
 package com.SSPWorldWide.Framework.Adviser.Helper;
 
 import java.io.File;
-
 import com.aventstack.extentreports.AnalysisStrategy;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.IReport;
-import com.aventstack.extentreports.RunResult;
-import com.aventstack.extentreports.TestListener;
-import com.aventstack.extentreports.model.BasicReportElement;
-import com.aventstack.extentreports.model.Test;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.ChartLocation;
 import com.aventstack.extentreports.reporter.configuration.*;
@@ -21,7 +15,7 @@ public class Reporting extends WebdriverHelper {
 	private static ExtentHtmlReporter htmlReporter;
 
 	public static void createReport(String suiteName) {
-		htmlReporter = new ExtentHtmlReporter(Launcher.currDir + File.separator + suiteName + ".html");
+		htmlReporter = new ExtentHtmlReporter(Launcher.currDir + File.separator + "Detailed Report" + File.separator + suiteName + ".html");
 		htmlReporter.config().setChartVisibilityOnOpen(true);
 		htmlReporter.config().setDocumentTitle("Adviser Automation Report");
 		htmlReporter.config().setReportName("Regression cycle");

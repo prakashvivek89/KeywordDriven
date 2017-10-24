@@ -1,11 +1,14 @@
 package com.SSPWorldWide.Framework.Adviser.Helper;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+import org.apache.commons.io.FileUtils;
 import org.apache.poi.ss.usermodel.BorderStyle;
 import org.apache.poi.ss.usermodel.FillPatternType;
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -15,6 +18,11 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.ITestResult;
+import com.aspose.cells.Chart;
+import com.aspose.cells.ChartCollection;
+import com.aspose.cells.Workbook;
+import com.aspose.cells.Worksheet;
+import com.aspose.cells.WorksheetCollection;
 
 public class ExcelReport {
 	private static FileOutputStream fos = null;
@@ -28,9 +36,32 @@ public class ExcelReport {
 	private static XSSFCellStyle headerStyle = null;
 	private static String summarySheetName = "Summary";
 	private static int colCount = 0;
+	private static int executionRowCount = 21;
 	private static List<ITestResult> allResults;
 
 	private static boolean setCellData(String sheetName, int colNumber, int rowNum, String value, Short index) {
+		try {
+			sheet = workbook.getSheet(sheetName);
+			row = sheet.getRow(rowNum);
+			if (row == null) {
+				row = sheet.createRow(rowNum);
+			}
+
+			cell = row.getCell(colNumber);
+			if (cell == null) {
+				cell = row.createCell(colNumber);
+			}
+
+			applyCellStyle(index.shortValue());
+			cell.setCellValue(value);
+			return true;
+		} catch (Exception arg5) {
+			arg5.printStackTrace();
+			return false;
+		}
+	}
+
+	private static boolean setCellData(String sheetName, int colNumber, int rowNum, int value, Short index) {
 		try {
 			sheet = workbook.getSheet(sheetName);
 			row = sheet.getRow(rowNum);
@@ -83,22 +114,22 @@ public class ExcelReport {
 
 	private static void applyCellStyle(short index) {
 		style = workbook.createCellStyle();
-		font.setFontName("Arial");
-		font.setFontHeight(12.0D);
+		font.setFontName("Calibri");
+		font.setFontHeight(9.0D);
 		style.setFont(font);
 		style.setFillForegroundColor(index);
 		style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
-		style.setBorderBottom(BorderStyle.MEDIUM);
-		style.setBorderTop(BorderStyle.MEDIUM);
-		style.setBorderRight(BorderStyle.MEDIUM);
-		style.setBorderLeft(BorderStyle.MEDIUM);
+		style.setBorderBottom(BorderStyle.THIN);
+		style.setBorderTop(BorderStyle.THIN);
+		style.setBorderRight(BorderStyle.THIN);
+		style.setBorderLeft(BorderStyle.THIN);
 		cell.setCellStyle(style);
 	}
 
 	private static void applyCellHeaderStyle(short index) {
 		headerStyle = workbook.createCellStyle();
-		font.setFontName("Arial");
-		headerFont.setFontHeight(14.0D);
+		headerFont.setFontName("Calibri");
+		headerFont.setFontHeight(12.0D);
 		headerFont.setBold(true);
 		headerStyle.setFont(headerFont);
 		headerStyle.setFillForegroundColor(index);
@@ -116,53 +147,111 @@ public class ExcelReport {
 		short colCount = row.getLastCellNum();
 		return colCount;
 	}
-	
-	private static String getDateWithDay () {
+
+	private static String getDateWithDay() {
 		final DateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		Calendar cal = Calendar.getInstance();
 		((SimpleDateFormat) sdf).applyPattern("EEEE d MMM yyyy");
 		String currentDate = sdf.format(cal.getTime());
-		System.out.println(currentDate);
 		return currentDate;
 	}
 
-	public static void generateFinalReportExcelSheet() throws Exception {
-		String total = String.valueOf(WebdriverHelper.totalCount);
-		String passed = String.valueOf(WebdriverHelper.totalPassCount);
-		String failed = String.valueOf(WebdriverHelper.totalFailCount);
-		String skipped = String.valueOf(WebdriverHelper.totalSkipCount);
-		String test_suite_startTime = String.valueOf(WebdriverHelper.totalSkipCount);
-		String test_suite_endTime = String.valueOf(WebdriverHelper.totalSkipCount);
-		workbook.getSheet(summarySheetName);
-		setCellData("Summary", 2, 5, "Adviser11", Short.valueOf((short) 9));
-		setCellData("Summary", 2, 6, getDateWithDay(), Short.valueOf((short) 9));
-		setCellData("Summary", 5, 6,passed , Short.valueOf((short) 9));
-		setCellData("Summary", 5, 7,failed, Short.valueOf((short) 9));
-		setCellData("Summary", 5, 8,skipped, Short.valueOf((short) 9));
-		setCellData("Summary", 5, 9,total, Short.valueOf((short) 9));
-	}
-
-	public static void generateReport(String folderLocation, String xlFileName) throws Exception {
-		workbook = new XSSFWorkbook();
+	private static void copyFileAndEditUsingStream() throws Exception {
+		File source = new File(
+				System.getProperty("user.dir") + "/src/test/resources/Report Format" + "/Final Report.xlsx");
+		File dest = new File(Launcher.currDir + File.separator + "Customized Report");
+		FileUtils.copyFileToDirectory(source, dest);
+		FileInputStream file = new FileInputStream(dest + "/Final Report.xlsx");
+		workbook = new XSSFWorkbook(file);
+		XSSFSheet sheet = (XSSFSheet) workbook.getSheet("Summary");
+		sheet.setForceFormulaRecalculation(true);
 		font = workbook.createFont();
-		font.setFontName("Arial");
 		headerFont = workbook.createFont();
 		style = workbook.createCellStyle();
 		headerStyle = workbook.createCellStyle();
-		addSheet(summarySheetName);
-		for (String moduleName : WebdriverHelper.finalReportingMap.keySet()) {
-			generateFinalReportExcelSheet();
-			allResults = WebdriverHelper.finalReportingMap.get(moduleName);
-			generateModuleWiseReportExcelSheet(moduleName, allResults);
+	}
+
+	public static void generateFinalReportExcelSheet() throws Exception {
+		int total = WebdriverHelper.totalCount;
+		int passed = WebdriverHelper.totalPassCount;
+		int failed = WebdriverHelper.totalFailCount;
+		int skipped = WebdriverHelper.totalSkipCount;
+		workbook.getSheet(summarySheetName);
+		setCellData("Summary", 2, 5, "Adviser11", Short.valueOf((short) 9));
+		setCellData("Summary", 2, 6, getDateWithDay(), Short.valueOf((short) 9));
+		setCellData("Summary", 2, 7, Launcher.startTime.toString(), Short.valueOf((short) 9));
+		setCellData("Summary", 2, 8, Launcher.endTime.toString(), Short.valueOf((short) 9));
+		setCellData("Summary", 2, 9, getExecutionTime(Launcher.totalTime), Short.valueOf((short) 9));
+		setCellData("Summary", 2, 11, Launcher.currDir + File.separator + "Detailed Report", Short.valueOf((short) 9));
+		setCellData("Summary", 5, 6, passed, Short.valueOf((short) 9));
+		setCellData("Summary", 5, 7, failed, Short.valueOf((short) 9));
+		setCellData("Summary", 5, 8, skipped, Short.valueOf((short) 9));
+		setCellData("Summary", 5, 9, total, Short.valueOf((short) 9));
+	}
+
+	private static void createExecutionDetailsChart() throws Exception {
+		File dest = new File(Launcher.currDir + File.separator + "Customized Report");
+		FileInputStream file = new FileInputStream(dest + "/Final Report.xlsx");
+		Workbook workbook = new Workbook(file);
+		WorksheetCollection worksheets = workbook.getWorksheets();
+		Worksheet worksheet = worksheets.get(summarySheetName);
+		ChartCollection charts = worksheet.getCharts();
+		Chart chart = charts.get(1);
+		int ran = 21 + WebdriverHelper.finalReportingMap.keySet().size();
+		String finalRange = String.valueOf(ran);
+		String range = "=Summary!$B$21:$E$" + finalRange;
+		chart.setChartDataRange(range, true);
+		chart.setShowDataTable(true);
+		for (int i = 1; i < worksheets.getCount(); i++) {
+			colCount = getColumnCount(worksheets.get(i).getName());
+			for (int colPosition = 1; colPosition < colCount; ++colPosition) {
+				worksheets.get(i).autoFitColumn(colPosition);
+			}
 		}
-		fos = new FileOutputStream(folderLocation + File.separator + xlFileName);
+		workbook.save(dest + "/Final Report.xlsx");
+		file.close();
+	}
+
+	private static void deleteAsposeSheet() throws Exception {
+		File dest = new File(Launcher.currDir + File.separator + "Customized Report");
+		FileInputStream file = new FileInputStream(dest + "/Final Report.xlsx");
+		workbook = new XSSFWorkbook(file);
+		XSSFSheet sheet = (XSSFSheet) workbook.getSheet("Evaluation Warning");
+		workbook.removeSheetAt(workbook.getSheetIndex(sheet));
+		fos = new FileOutputStream(
+				Launcher.currDir + File.separator + "Customized Report" + File.separator + "Final Report.xlsx");
 		workbook.write(fos);
 		workbook.close();
 		fos.close();
+	}
+
+	private static String getExecutionTime(long millis) {
+		String hms = String.format("%02d:%02d:%02d", TimeUnit.MILLISECONDS.toHours(millis),
+				TimeUnit.MILLISECONDS.toMinutes(millis)
+						- TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millis)),
+				TimeUnit.MILLISECONDS.toSeconds(millis)
+						- TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis)));
+		return hms;
+	}
+
+	public static void generateReport() throws Exception {
+		copyFileAndEditUsingStream();
+		for (String moduleName : WebdriverHelper.finalReportingMap.keySet()) {
+			allResults = WebdriverHelper.finalReportingMap.get(moduleName);
+			generateModuleWiseReportExcelSheet(moduleName, allResults);
+		}
+		generateFinalReportExcelSheet();
+		fos = new FileOutputStream(
+				Launcher.currDir + File.separator + "Customized Report" + File.separator + "Final Report.xlsx");
+		workbook.write(fos);
+		workbook.close();
+		fos.close();
+		createExecutionDetailsChart();
+		deleteAsposeSheet();
 		System.out.println("Excel Report Generated");
 	}
 
-	public static void generateModuleWiseReportExcelSheet(String moduleName, List<ITestResult> moduleResults) {
+	private static void generateModuleWiseReportExcelSheet(String moduleName, List<ITestResult> moduleResults) {
 		addSheet(moduleName);
 		setCellHeaderData(moduleName, 0, 0, "TestcaseID", Short.valueOf((short) 13));
 		setCellHeaderData(moduleName, 1, 0, "TestCaseName", Short.valueOf((short) 13));
@@ -171,32 +260,47 @@ public class ExcelReport {
 		setCellHeaderData(moduleName, 4, 0, "StartTime", Short.valueOf((short) 13));
 		setCellHeaderData(moduleName, 5, 0, "EndTime", Short.valueOf((short) 13));
 		setCellHeaderData(moduleName, 6, 0, "Duration", Short.valueOf((short) 13));
+		int moduleWisePassedTest = 0;
+		int moduleWiseFailedTest = 0;
+		int moduleWiseSkippedTest = 0;
 		int r = 1;
 		for (ITestResult result : moduleResults) {
 			String testcaseID = result.getMethod().getMethodName();
 			String testCaseName = result.getMethod().getDescription();
-			String exception = result.getThrowable().getMessage();
-			String startTime = String.valueOf(result.getStartMillis());
-			String endTime = String.valueOf(result.getEndMillis());
+			moduleWisePassedTest = moduleWisePassedTest + result.getTestContext().getPassedTests().size();
+			moduleWiseFailedTest = moduleWiseFailedTest + result.getTestContext().getFailedTests().size();
+			moduleWiseSkippedTest = moduleWiseSkippedTest + result.getTestContext().getSkippedTests().size();
+			Calendar calendar = Calendar.getInstance();
+			calendar.setTimeInMillis((result.getStartMillis()));
+			String startTime = String.valueOf(calendar.get(Calendar.HOUR_OF_DAY)) + ":"
+					+ String.valueOf(calendar.get(Calendar.MINUTE)) + ":"
+					+ String.valueOf(calendar.get(Calendar.SECOND));
+			calendar.setTimeInMillis((result.getEndMillis()));
+			String endTime = String.valueOf(calendar.get(Calendar.HOUR_OF_DAY)) + ":"
+					+ String.valueOf(calendar.get(Calendar.MINUTE)) + ":"
+					+ String.valueOf(calendar.get(Calendar.SECOND));
+			String duration = getExecutionTime(result.getStartMillis() - result.getEndMillis());
 			setCellData(moduleName, 0, r, testcaseID, Short.valueOf((short) 9));
 			setCellData(moduleName, 1, r, testCaseName, Short.valueOf((short) 9));
 			setCellData(moduleName, 4, r, startTime, Short.valueOf((short) 9));
 			setCellData(moduleName, 5, r, endTime, Short.valueOf((short) 9));
+			setCellData(moduleName, 6, r, duration, Short.valueOf((short) 9));
 			if (result.getStatus() == ITestResult.SUCCESS) {
-				setCellData(moduleName, 2, r, "PASS", Short.valueOf((short) 9));
-				setCellData(moduleName, 3, r, "", Short.valueOf((short) 11));
+				setCellData(moduleName, 2, r, "PASS", Short.valueOf((short) 11));
+				setCellData(moduleName, 3, r, "", Short.valueOf((short) 9));
 			}
 			if (result.getStatus() == ITestResult.FAILURE) {
 				setCellData(moduleName, 2, r, "FAIL", Short.valueOf((short) 10));
-				setCellData(moduleName, 3, r, exception, Short.valueOf((short) 10));
+				setCellData(moduleName, 3, r, result.getThrowable().getMessage(), Short.valueOf((short) 10));
 			}
 			r++;
 		}
-		colCount = getColumnCount(moduleName);
-
-		for (int colPosition = 1; colPosition < colCount; ++colPosition) {
-			sheet.autoSizeColumn(colPosition);
-		}
+		workbook.getSheet(summarySheetName);
+		setCellData(summarySheetName, 1, executionRowCount, moduleName, Short.valueOf((short) 9));
+		setCellData(summarySheetName, 2, executionRowCount, moduleWisePassedTest, Short.valueOf((short) 9));
+		setCellData(summarySheetName, 3, executionRowCount, moduleWiseFailedTest, Short.valueOf((short) 9));
+		setCellData(summarySheetName, 4, executionRowCount, moduleWiseSkippedTest, Short.valueOf((short) 9));
+		executionRowCount = executionRowCount + 1;
 	}
 
 }

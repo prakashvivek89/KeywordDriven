@@ -38,10 +38,10 @@ public class WebdriverHelper {
 	public static String runRegression;
 	public static ListMultimap<String, ITestResult> finalReportingMap = ArrayListMultimap.create();
 	public static Map<String, String> getObjectRepo = new HashMap<String, String>();
-	public static int totalPassCount =0;
-	public static int totalFailCount =0;
-	public static int totalCount =0;
-	public static int totalSkipCount =0 ;
+	public static int totalPassCount = 0;
+	public static int totalFailCount = 0;
+	public static int totalCount = 0;
+	public static int totalSkipCount = 0;
 	static {
 		platformName = PropReader.readWebdriverConfig("platform");
 		browserName = PropReader.readWebdriverConfig("browser.name");
@@ -163,12 +163,12 @@ public class WebdriverHelper {
 				closeBrowser();
 			}
 		}
-		
+
 		else {
 			totalPassCount = totalPassCount + 1;
 		}
-		if(result.getStatus() == ITestResult.SKIP) {
-			totalSkipCount = totalSkipCount +1;
+		if (result.getStatus() == ITestResult.SKIP) {
+			totalSkipCount = totalSkipCount + 1;
 		}
 		finalReportingMap.put(result.getTestContext().getCurrentXmlTest().getSuite().getName(), result);
 	}
@@ -184,17 +184,15 @@ public class WebdriverHelper {
 
 	public static void launch() {
 		if (runRegression.equalsIgnoreCase("yes")) {
-			System.out.println("running whole suite");
 			try {
 				DynamicSuiteFileCreator.runRegressionSuite();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		} else {
-			System.out.println("running single testcase");
 			try {
-				System.out.println("testsuiteName is  : "+testSuiteName);
-				System.out.println("testcaseID is  : "+testcaseID);
+				System.out.println("testsuiteName is  : " + testSuiteName);
+				System.out.println("testcaseID is  : " + testcaseID);
 				DynamicSuiteFileCreator.runSingleSuite(testSuiteName, testcaseID);
 			} catch (Exception e) {
 				e.printStackTrace();
