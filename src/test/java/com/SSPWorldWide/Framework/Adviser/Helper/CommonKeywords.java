@@ -160,11 +160,6 @@ public class CommonKeywords extends WebdriverHelper {
 				getWebDriver().switchTo().defaultContent();
 			}
 		}
-		// } else {
-		// getWebDriver().findElement(By.tagName("html")).sendKeys(Keys.chord(Keys.CONTROL,
-		// Keys.PAGE_DOWN));
-		// getWebDriver().switchTo().defaultContent();
-		// }
 	}
 
 	private static void switchToPreviousTab() {
