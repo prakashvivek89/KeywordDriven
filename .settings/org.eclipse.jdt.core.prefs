@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 #Thu Nov 16 15:46:16 IST 2017
 encoding/src/test/java=${utf-8}
 org.eclipse.jdt.core.compiler.debug.localVariable=generate
 org.eclipse.jdt.core.compiler.compliance=1.8
 encoding/.=${utf-8}
 org.eclipse.jdt.core.compiler.codegen.unusedLocal=preserve
+=======
+#Fri Sep 29 12:40:39 IST 2017
+encoding/src/test/java=${utf-8}
+org.eclipse.jdt.core.compiler.debug.localVariable=generate
+org.eclipse.jdt.core.compiler.compliance=1.8
+org.eclipse.jdt.core.compiler.codegen.unusedLocal=preserve
+encoding/src/main/resources=${utf-8}
+>>>>>>> origin/master
 org.eclipse.jdt.core.compiler.debug.sourceFile=generate
 org.eclipse.jdt.core.compiler.problem.forbiddenReference=warning
 org.eclipse.jdt.core.compiler.codegen.methodParameters=do not generate

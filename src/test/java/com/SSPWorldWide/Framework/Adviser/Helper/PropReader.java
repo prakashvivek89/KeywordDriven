@@ -23,7 +23,6 @@ public class PropReader {
 	public static Properties loadPropFiles() throws IOException {
 		Properties mavenProps = new Properties();
 		InputStream in = PropReader.class.getResourceAsStream("/Config.properties");
-//		FileReader reader = new FileReader(System.getProperty("user.dir") +"/Config.properties");
 		mavenProps.load(in);
 		return mavenProps;
 	}

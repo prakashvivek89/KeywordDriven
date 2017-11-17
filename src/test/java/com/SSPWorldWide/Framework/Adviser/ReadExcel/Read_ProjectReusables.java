@@ -93,12 +93,7 @@ public class Read_ProjectReusables extends ExcelReusables {
 					String key = step.split("##")[2];
 					key = key.substring(6, key.length() - 1);
 					if(testdata.length>0) {
-						if(TestDataReader.getTData(testdata[0], testdata[1], Integer.parseInt(testdata[2])).containsKey(key)) {
-							data = TestDataReader.getTData(testdata[0], testdata[1], Integer.parseInt(testdata[2])).get(key);
-						}
-						else {
-							throw new Exception("Coulumn '"+key+"' does not exist in "+testdata[0]);
-						}
+						data = TestDataReader.getTData(testdata[0], testdata[1], Integer.parseInt(testdata[2])).get(key);
 					}
 					else {
 						data = key;
@@ -138,7 +133,12 @@ public class Read_ProjectReusables extends ExcelReusables {
 					String key = s.split("##")[2];
 					key = key.substring(6, key.length() - 1);
 					if(testdata.length>0) {
-						data = TestDataReader.getTData(testdata[0], testdata[1], Integer.parseInt(testdata[2])).get(key);
+						if(TestDataReader.getTData(testdata[0], testdata[1], Integer.parseInt(testdata[2])).containsKey(key)) {
+							data = TestDataReader.getTData(testdata[0], testdata[1], Integer.parseInt(testdata[2])).get(key);
+						}
+						else {
+							throw new Exception("Coulumn '"+key+"' does not exist in "+testdata[0]);
+						}
 					}
 					else {
 						data = key;

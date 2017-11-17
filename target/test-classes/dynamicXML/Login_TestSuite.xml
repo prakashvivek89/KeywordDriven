@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Login_TestSuite">
+  <test name="Login.002">
+    <classes>
+      <class name="com.SSPWorldWide.Framework.Adviser.Testcases.Login_TestSuite">
+        <methods>
+          <include name="Login.002"/>
+        </methods>
+      </class> <!-- com.SSPWorldWide.Framework.Adviser.Testcases.Login_TestSuite -->
+    </classes>
+  </test> <!-- Login.002 -->
+  <test name="Login.001">
+    <classes>
+      <class name="com.SSPWorldWide.Framework.Adviser.Testcases.Login_TestSuite">
+        <methods>
+          <include name="Login.001"/>
+        </methods>
+      </class> <!-- com.SSPWorldWide.Framework.Adviser.Testcases.Login_TestSuite -->
+    </classes>
+  </test> <!-- Login.001 -->
+  <test name="Login.003">
+    <classes>
+      <class name="com.SSPWorldWide.Framework.Adviser.Testcases.Login_TestSuite">
+        <methods>
+          <include name="Login.003"/>
+        </methods>
+      </class> <!-- com.SSPWorldWide.Framework.Adviser.Testcases.Login_TestSuite -->
+    </classes>
+  </test> <!-- Login.003 -->
+</suite> <!-- Login_TestSuite -->

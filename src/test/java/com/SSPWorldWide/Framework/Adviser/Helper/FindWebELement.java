@@ -15,6 +15,7 @@ public class FindWebELement {
 				String value = type_value[1];
 				
 				/*  Code for dynamic locator  */
+				
 				if (value.contains("{$argument}")) {
 					String[] first = value.split("\\{");
 					String[] second = first[1].split("\\}");

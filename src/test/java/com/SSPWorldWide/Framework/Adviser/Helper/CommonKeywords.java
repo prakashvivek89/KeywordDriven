@@ -151,15 +151,15 @@ public class CommonKeywords extends WebdriverHelper {
 	}
 
 	private static void switchToNextTab() {
-		parentWindowHandle = getWebDriver().getWindowHandle();
-		getWebDriver().getWindowHandles();
-		Set<String> windowHandles = getWebDriver().getWindowHandles();
-		for (String window : windowHandles) {
-			if (!(window.equals(parentWindowHandle))) {
-				getWebDriver().switchTo().window(window);
-				getWebDriver().switchTo().defaultContent();
+			parentWindowHandle = getWebDriver().getWindowHandle();
+			getWebDriver().getWindowHandles();
+			Set<String> windowHandles = getWebDriver().getWindowHandles();
+			for (String window : windowHandles) {
+				if (!(window.equals(parentWindowHandle))) {
+					getWebDriver().switchTo().window(window);
+					getWebDriver().switchTo().defaultContent();
+				}
 			}
-		}
 	}
 
 	private static void switchToPreviousTab() {
@@ -339,11 +339,10 @@ public class CommonKeywords extends WebdriverHelper {
 			if (text.contains("-")) {
 				int range = Integer.parseInt(text.split("-")[1]);
 				text = String.valueOf(RandomStringUtils.randomNumeric(range));
+				System.out.println(text);
 			} else {
 				throw new Exception("Please enter a range");
 			}
-		} else if (text.equalsIgnoreCase("randemail")) {
-			text = RandomStringUtils.randomAlphabetic(5) + "@mailinator.com";
 		}
 		if (mapToStoreVariable.containsKey(text)) {
 			text = mapToStoreVariable.get(text);
