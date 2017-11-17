@@ -1,1 +1,1 @@
-mvn clean install
+mvn clean eclipse:eclipse install
