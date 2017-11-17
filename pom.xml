@@ -204,20 +204,20 @@
 			<artifactId>autoit</artifactId>
 			<version>${autoit}</version>
 		</dependency>
-		
+
 		<!-- aShot jar -->
 		<dependency>
 			<groupId>ru.yandex.qatools.ashot</groupId>
 			<artifactId>ashot</artifactId>
 			<version>${ashot}</version>
 		</dependency>
-		
+
 		<!-- https://mvnrepository.com/artifact/com.assertthat/selenium-shutterbug -->
-<dependency>
-    <groupId>com.assertthat</groupId>
-    <artifactId>selenium-shutterbug</artifactId>
-    <version>0.7</version>
-</dependency>
+		<dependency>
+			<groupId>com.assertthat</groupId>
+			<artifactId>selenium-shutterbug</artifactId>
+			<version>0.7</version>
+		</dependency>
 
 	</dependencies>
 
