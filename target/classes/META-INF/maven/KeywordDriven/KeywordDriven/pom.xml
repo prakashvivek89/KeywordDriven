@@ -1,0 +1,226 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>KeywordDriven</groupId>
+	<artifactId>KeywordDriven</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>KEYWORD_DRIVEN</name>
+
+	<profiles>
+
+		<!-- Running smoke test -->
+		<profile>
+			<id>smoke</id>
+			<properties>
+				<runSmoke>Yes</runSmoke>
+			</properties>
+		</profile>
+
+		<!-- Running Regression test -->
+		<profile>
+			<id>regression</id>
+			<properties>
+				<runRegression>Yes</runRegression>
+			</properties>
+		</profile>
+
+		<!-- Running Regression test -->
+		<profile>
+			<id>single</id>
+			<properties>
+				<runRegression>No</runRegression>
+				<runSmoke>No</runSmoke>
+			</properties>
+		</profile>
+
+	</profiles>
+
+	<properties>
+		<selenium.version>3.7.1</selenium.version>
+		<slf4jVersion>1.7.21</slf4jVersion>
+		<maven-surefire-plugin>2.19.1</maven-surefire-plugin>
+		<maven-compiler-plugin>3.5.1</maven-compiler-plugin>
+		<maven-cucumber-reporting>3.1.0</maven-cucumber-reporting>
+		<testng>6.11</testng>
+		<java-version>1.8</java-version>
+		<random-string>1.1.0</random-string>
+		<poi>3.17-beta1</poi>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java-compiler>C:\Program Files\Java\jdk1.8.0_102\bin\javac.exe</java-compiler>
+		<java-tools.jar>C:\Program Files\Java\jdk1.8.0_102\lib\tools.jar</java-tools.jar>
+		<guava>23.0</guava>
+		<extentreports>3.0.7</extentreports>
+		<jfreechart>1.0.19</jfreechart>
+		<jcommon>1.0.23</jcommon>
+		<xmlbeans>2.6.0</xmlbeans>
+		<aspose-cells>16.11.0</aspose-cells>
+		<jacob>1.18</jacob>
+		<autoit>0.1.13</autoit>
+		<ashot>1.5.4</ashot>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>AsposeJavaAPI</id>
+			<name>Aspose Java API</name>
+			<url>http://maven.aspose.com/artifactory/simple/ext-release-local/</url>
+		</repository>
+	</repositories>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin}</version>
+				<configuration>
+					<encoding>${utf-8}</encoding>
+					<fork>true</fork>
+					<executable>${java-compiler}</executable>
+					<source>${java-version}</source>
+					<target>${java-version}</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${maven-surefire-plugin}</version>
+				<configuration>
+					<suiteXmlFiles>
+						<suiteXmlFile>Launch.xml</suiteXmlFile>
+					</suiteXmlFiles>
+				</configuration>
+			</plugin>
+		</plugins>
+		<resources>
+			<resource>
+				<directory>${project.basedir}</directory>
+				<includes>
+					<include>Config.properties</include>
+				</includes>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+	</build>
+	<dependencies>
+
+		<!-- Selenium Jars -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>${selenium.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-server</artifactId>
+			<version>${selenium.version}</version>
+		</dependency>
+
+		<!-- testng Jars -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>${testng}</version>
+		</dependency>
+
+		<!-- -->
+		<dependency>
+			<groupId>com.google.inject</groupId>
+			<artifactId>guice</artifactId>
+			<version>4.1.0</version>
+		</dependency>
+
+		<!-- Random String -->
+		<dependency>
+			<groupId>net.moznion</groupId>
+			<artifactId>random-string</artifactId>
+			<version>${random-string}</version>
+		</dependency>
+
+		<!-- Excel-POI Jars -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>${poi}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>${poi}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml-schemas</artifactId>
+			<version>${poi}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.xmlbeans</groupId>
+			<artifactId>xmlbeans</artifactId>
+			<version>${xmlbeans}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>${guava}</version>
+		</dependency>
+
+		<!-- Extent Reports -->
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>${extentreports}</version>
+		</dependency>
+
+		<!-- JfreeJars -->
+		<dependency>
+			<groupId>org.jfree</groupId>
+			<artifactId>jfreechart</artifactId>
+			<version>${jfreechart}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jfree</groupId>
+			<artifactId>jcommon</artifactId>
+			<version>${jcommon}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.aspose</groupId>
+			<artifactId>aspose-cells</artifactId>
+			<version>${aspose-cells}</version>
+		</dependency>
+
+		<!-- File Upload Jar -->
+		<dependency>
+			<groupId>com.hynnet</groupId>
+			<artifactId>jacob</artifactId>
+			<version>${jacob}</version>
+		</dependency>
+
+		<!-- Autoit jar -->
+		<dependency>
+			<groupId>de.openkeyword</groupId>
+			<artifactId>autoit</artifactId>
+			<version>${autoit}</version>
+		</dependency>
+		
+		<!-- aShot jar -->
+		<dependency>
+			<groupId>ru.yandex.qatools.ashot</groupId>
+			<artifactId>ashot</artifactId>
+			<version>${ashot}</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/com.assertthat/selenium-shutterbug -->
+<dependency>
+    <groupId>com.assertthat</groupId>
+    <artifactId>selenium-shutterbug</artifactId>
+    <version>0.7</version>
+</dependency>
+
+	</dependencies>
+
+
+
+</project>
