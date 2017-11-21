@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Exmaple_Scenarios">
+  <test name="Example_001">
+    <classes>
+      <class name="com.VP.Framework.Adviser.Testcases.Exmaple_Scenarios">
+        <methods>
+          <include name="Example_001"/>
+        </methods>
+      </class> <!-- com.VP.Framework.Adviser.Testcases.Exmaple_Scenarios -->
+    </classes>
+  </test> <!-- Example_001 -->
+</suite> <!-- Exmaple_Scenarios -->

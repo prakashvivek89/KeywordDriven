@@ -3,7 +3,7 @@
 <suite name="Automation">
   <test name="Automation">
     <classes>
-      <class name="com.SSPWorldWide.Framework.Adviser.Helper.Launcher">
+      <class name="com.VP.Framework.Adviser.Helper.Launcher">
         <methods>
           <include name="launchAutomation"/>
         </methods>

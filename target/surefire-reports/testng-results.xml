@@ -2,31 +2,31 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Automation" duration-ms="77510" started-at="2017-10-24T05:56:58Z" finished-at="2017-10-24T05:58:16Z">
+  <suite name="Automation" duration-ms="45928" started-at="2017-11-21T08:19:54Z" finished-at="2017-11-21T08:20:40Z">
     <groups>
     </groups>
-    <test name="Automation" duration-ms="77510" started-at="2017-10-24T05:56:58Z" finished-at="2017-10-24T05:58:16Z">
-      <class name="com.SSPWorldWide.Framework.Adviser.Helper.Launcher">
-        <test-method status="PASS" signature="beforeSuite(org.testng.ITestContext)[pri:0, instance:com.SSPWorldWide.Framework.Adviser.Helper.Launcher@47f6473]" name="beforeSuite" is-config="true" duration-ms="36" started-at="2017-10-24T11:26:58Z" finished-at="2017-10-24T11:26:58Z">
+    <test name="Automation" duration-ms="45928" started-at="2017-11-21T08:19:54Z" finished-at="2017-11-21T08:20:40Z">
+      <class name="com.VP.Framework.Adviser.Helper.Launcher">
+        <test-method status="PASS" signature="beforeSuite(org.testng.ITestContext)[pri:0, instance:com.VP.Framework.Adviser.Helper.Launcher@61dc03ce]" name="beforeSuite" is-config="true" duration-ms="661" started-at="2017-11-21T13:49:53Z" finished-at="2017-11-21T13:49:54Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@575b5f7d]]>
+                <![CDATA[org.testng.TestRunner@4730e0f0]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeSuite -->
-        <test-method status="PASS" signature="launchAutomation()[pri:0, instance:com.SSPWorldWide.Framework.Adviser.Helper.Launcher@47f6473]" name="launchAutomation" duration-ms="77500" started-at="2017-10-24T11:26:58Z" finished-at="2017-10-24T11:28:16Z">
+        <test-method status="PASS" signature="launchAutomation()[pri:0, instance:com.VP.Framework.Adviser.Helper.Launcher@61dc03ce]" name="launchAutomation" duration-ms="45920" started-at="2017-11-21T13:49:54Z" finished-at="2017-11-21T13:50:40Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchAutomation -->
-        <test-method status="PASS" signature="afterSuite()[pri:0, instance:com.SSPWorldWide.Framework.Adviser.Helper.Launcher@47f6473]" name="afterSuite" is-config="true" duration-ms="1868" started-at="2017-10-24T11:28:16Z" finished-at="2017-10-24T11:28:18Z">
+        <test-method status="PASS" signature="afterSuite()[pri:0, instance:com.VP.Framework.Adviser.Helper.Launcher@61dc03ce]" name="afterSuite" is-config="true" duration-ms="1697" started-at="2017-11-21T13:50:40Z" finished-at="2017-11-21T13:50:41Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterSuite -->
-      </class> <!-- com.SSPWorldWide.Framework.Adviser.Helper.Launcher -->
+      </class> <!-- com.VP.Framework.Adviser.Helper.Launcher -->
     </test> <!-- Automation -->
   </suite> <!-- Automation -->
 </testng-results>

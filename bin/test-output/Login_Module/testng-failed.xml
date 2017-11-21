@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Login_Module]">
+  <test name="Login_004(failed)">
+    <classes>
+      <class name="com.SSPWorldWide.Framework.Adviser.Testcases.Login_Module">
+        <methods>
+          <include name="beforeMethod"/>
+          <include name="Login_004"/>
+          <include name="tearDown"/>
+          <include name="beforeSuite"/>
+          <include name="afterSuite"/>
+        </methods>
+      </class> <!-- com.SSPWorldWide.Framework.Adviser.Testcases.Login_Module -->
+    </classes>
+  </test> <!-- Login_004(failed) -->
+</suite> <!-- Failed suite [Login_Module] -->

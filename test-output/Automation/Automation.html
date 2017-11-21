@@ -55,17 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Automation</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>0/0/1</td>
 </tr><tr>
-<<<<<<< HEAD
-<td>Started on:</td><td>Fri Nov 17 13:40:14 IST 2017</td>
+<td>Started on:</td><td>Tue Nov 21 13:49:08 IST 2017</td>
 </tr>
-<tr><td>Total time:</td><td>31 seconds (31803 ms)</td>
-=======
-<td>Started on:</td><td>Tue Oct 24 10:57:16 IST 2017</td>
-</tr>
-<tr><td>Total time:</td><td>80 seconds (80925 ms)</td>
->>>>>>> origin/master
+<tr><td>Total time:</td><td>0 seconds (12 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -73,23 +67,111 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-passed'>
-<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED CONFIGURATIONS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td width="30%"><b>Exception</b></td>
 <td width="10%"><b>Time (seconds)</b></td>
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.SSPWorldWide.Framework.Adviser.Helper.Launcher.launchAutomation()'><b>launchAutomation</b><br>Test class: com.SSPWorldWide.Framework.Adviser.Helper.Launcher</td>
-<td></td>
-<<<<<<< HEAD
-<td>31</td>
-<td>com.SSPWorldWide.Framework.Adviser.Helper.Launcher@7085bdee</td></tr>
-=======
-<td>80</td>
-<td>com.SSPWorldWide.Framework.Adviser.Helper.Launcher@4dfa3a9d</td></tr>
->>>>>>> origin/master
+<td title='com.VP.Framework.Adviser.Helper.Launcher.beforeSuite()'><b>beforeSuite</b><br>Test class: com.VP.Framework.Adviser.Helper.Launcher<br>Parameters: org.testng.TestRunner@69a3d1d</td>
+<td><div><pre>java.lang.ExceptionInInitializerError
+	at com.VP.Framework.Adviser.Helper.Launcher.beforeSuite(Launcher.java:40)
+Caused by: java.lang.NullPointerException
+	at java.util.Properties$LineReader.readLine(Properties.java:434)
+	at java.util.Properties.load0(Properties.java:353)
+	at java.util.Properties.load(Properties.java:341)
+	at com.VP.Framework.Adviser.Helper.PropReader.loadPropFiles(PropReader.java:25)
+	at com.VP.Framework.Adviser.Helper.PropReader.readWebdriverConfig(PropReader.java:15)
+	at com.VP.Framework.Adviser.Helper.WebdriverHelper.&lt;clinit&gt;(WebdriverHelper.java:48)
+	... 20 more
+... Removed 19 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace399931359", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace399931359'><pre>java.lang.ExceptionInInitializerError
+	at com.VP.Framework.Adviser.Helper.Launcher.beforeSuite(Launcher.java:40)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:146)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:326)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: java.lang.NullPointerException
+	at java.util.Properties$LineReader.readLine(Properties.java:434)
+	at java.util.Properties.load0(Properties.java:353)
+	at java.util.Properties.load(Properties.java:341)
+	at com.VP.Framework.Adviser.Helper.PropReader.loadPropFiles(PropReader.java:25)
+	at com.VP.Framework.Adviser.Helper.PropReader.readWebdriverConfig(PropReader.java:15)
+	at com.VP.Framework.Adviser.Helper.WebdriverHelper.&lt;clinit&gt;(WebdriverHelper.java:48)
+	... 20 more
+</pre></div></td>
+<td>0</td>
+<td>com.VP.Framework.Adviser.Helper.Launcher@7085bdee</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.VP.Framework.Adviser.Helper.Launcher.launchAutomation()'><b>launchAutomation</b><br>Test class: com.VP.Framework.Adviser.Helper.Launcher</td>
+<td><div><pre>java.lang.ExceptionInInitializerError
+	at com.VP.Framework.Adviser.Helper.Launcher.beforeSuite(Launcher.java:40)
+Caused by: java.lang.NullPointerException
+	at java.util.Properties$LineReader.readLine(Properties.java:434)
+	at java.util.Properties.load0(Properties.java:353)
+	at java.util.Properties.load(Properties.java:341)
+	at com.VP.Framework.Adviser.Helper.PropReader.loadPropFiles(PropReader.java:25)
+	at com.VP.Framework.Adviser.Helper.PropReader.readWebdriverConfig(PropReader.java:15)
+	at com.VP.Framework.Adviser.Helper.WebdriverHelper.&lt;clinit&gt;(WebdriverHelper.java:48)
+	... 20 more
+... Removed 19 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1188753216", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1188753216'><pre>java.lang.ExceptionInInitializerError
+	at com.VP.Framework.Adviser.Helper.Launcher.beforeSuite(Launcher.java:40)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:146)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:326)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: java.lang.NullPointerException
+	at java.util.Properties$LineReader.readLine(Properties.java:434)
+	at java.util.Properties.load0(Properties.java:353)
+	at java.util.Properties.load(Properties.java:341)
+	at com.VP.Framework.Adviser.Helper.PropReader.loadPropFiles(PropReader.java:25)
+	at com.VP.Framework.Adviser.Helper.PropReader.readWebdriverConfig(PropReader.java:15)
+	at com.VP.Framework.Adviser.Helper.WebdriverHelper.&lt;clinit&gt;(WebdriverHelper.java:48)
+	... 20 more
+</pre></div></td>
+<td>0</td>
+<td>com.VP.Framework.Adviser.Helper.Launcher@7085bdee</td></tr>
 </table><p>
 </body>
 </html>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Client_Module]">
+  <test name="Client_004(failed)">
+    <classes>
+      <class name="com.SSPWorldWide.Framework.Adviser.Testcases.Client_Module">
+        <methods>
+          <include name="beforeMethod"/>
+          <include name="Client_004"/>
+          <include name="tearDown"/>
+          <include name="beforeSuite"/>
+          <include name="afterSuite"/>
+        </methods>
+      </class> <!-- com.SSPWorldWide.Framework.Adviser.Testcases.Client_Module -->
+    </classes>
+  </test> <!-- Client_004(failed) -->
+</suite> <!-- Failed suite [Client_Module] -->

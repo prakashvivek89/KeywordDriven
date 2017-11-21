@@ -1,48 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<<<<<<< HEAD
-<suite name="Failed suite [Exmaple_Scenarios]">
-  <test name="Example_001(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Automation]">
+  <test name="Automation(failed)">
     <classes>
-      <class name="com.SSPWorldWide.Framework.Adviser.Testcases.Exmaple_Scenarios">
+      <class name="com.VP.Framework.Adviser.Helper.Launcher">
         <methods>
-          <include name="beforeMethod"/>
-          <include name="tearDown"/>
-          <include name="beforeSuite"/>
-          <include name="Example_001"/>
           <include name="afterSuite"/>
-        </methods>
-      </class> <!-- com.SSPWorldWide.Framework.Adviser.Testcases.Exmaple_Scenarios -->
-    </classes>
-  </test> <!-- Example_001(failed) -->
-</suite> <!-- Failed suite [Exmaple_Scenarios] -->
-=======
-<suite name="Failed suite [Login_TestSuite]">
-  <test name="Login.002(failed)">
-    <classes>
-      <class name="com.SSPWorldWide.Framework.Adviser.Testcases.Login_TestSuite">
-        <methods>
-          <include name="beforeMethod"/>
-          <include name="Login_002"/>
-          <include name="tearDown"/>
           <include name="beforeSuite"/>
-          <include name="afterSuite"/>
+          <include name="launchAutomation"/>
         </methods>
-      </class> <!-- com.SSPWorldWide.Framework.Adviser.Testcases.Login_TestSuite -->
+      </class> <!-- com.VP.Framework.Adviser.Helper.Launcher -->
     </classes>
-  </test> <!-- Login.002(failed) -->
-  <test name="Login.003(failed)">
-    <classes>
-      <class name="com.SSPWorldWide.Framework.Adviser.Testcases.Login_TestSuite">
-        <methods>
-          <include name="Login_003"/>
-          <include name="beforeMethod"/>
-          <include name="tearDown"/>
-          <include name="beforeSuite"/>
-          <include name="afterSuite"/>
-        </methods>
-      </class> <!-- com.SSPWorldWide.Framework.Adviser.Testcases.Login_TestSuite -->
-    </classes>
-  </test> <!-- Login.003(failed) -->
-</suite> <!-- Failed suite [Login_TestSuite] -->
->>>>>>> origin/master
+  </test> <!-- Automation(failed) -->
+</suite> <!-- Failed suite [Automation] -->
