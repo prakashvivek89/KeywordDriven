@@ -5,7 +5,7 @@
     <test name="ParallelThread1">
         <!-- Specify the Run Suite classes which needed to be run in parallel -->
         <classes>
-            <class name="com.SSPWorldWide.Framework.Adviser.Helper.WebdriverHelper"/>
+            <class name="com.VP.Framework.Adviser.Helper.WebdriverHelper"/>
 
         </classes>
     </test>

@@ -1,54 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="4" total="5" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="43684" started-at="2017-11-20T06:10:43Z" finished-at="2017-11-20T06:11:26Z">
+  <suite name="Automation" duration-ms="44997" started-at="2017-11-22T10:38:35Z" finished-at="2017-11-22T10:39:20Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="43684" started-at="2017-11-20T06:10:43Z" finished-at="2017-11-20T06:11:26Z">
-      <class name="com.SSPWorldWide.Framework.Adviser.Helper.Launcher">
-        <test-method status="PASS" signature="beforeSuite(org.testng.ITestContext)[pri:0, instance:com.SSPWorldWide.Framework.Adviser.Helper.Launcher@4bbfb90a]" name="beforeSuite" is-config="true" duration-ms="547" started-at="2017-11-20T11:40:42Z" finished-at="2017-11-20T11:40:43Z">
+    <test name="Automation" duration-ms="44997" started-at="2017-11-22T10:38:35Z" finished-at="2017-11-22T10:39:20Z">
+      <class name="com.VP.Framework.Adviser.Helper.Launcher">
+        <test-method status="PASS" signature="beforeSuite(org.testng.ITestContext)[pri:0, instance:com.VP.Framework.Adviser.Helper.Launcher@7085bdee]" name="beforeSuite" is-config="true" duration-ms="594" started-at="2017-11-22T16:08:34Z" finished-at="2017-11-22T16:08:35Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@6e7c351d]]>
+                <![CDATA[org.testng.TestRunner@7d3fb0ef]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeSuite -->
-        <test-method status="PASS" signature="beforeSuite(org.testng.ITestContext)[pri:0, instance:com.SSPWorldWide.Framework.Adviser.Helper.WebdriverHelper@7c29daf3]" name="beforeSuite" is-config="true" duration-ms="94" started-at="2017-11-20T11:40:43Z" finished-at="2017-11-20T11:40:43Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@6e7c351d]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeSuite -->
-        <test-method status="PASS" signature="launchAutomation()[pri:0, instance:com.SSPWorldWide.Framework.Adviser.Helper.Launcher@4bbfb90a]" name="launchAutomation" duration-ms="43668" started-at="2017-11-20T11:40:43Z" finished-at="2017-11-20T11:41:26Z">
+        <test-method status="PASS" signature="launchAutomation()[pri:0, instance:com.VP.Framework.Adviser.Helper.Launcher@7085bdee]" name="launchAutomation" duration-ms="44981" started-at="2017-11-22T16:08:35Z" finished-at="2017-11-22T16:09:20Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchAutomation -->
-        <test-method status="PASS" signature="afterSuite()[pri:0, instance:com.SSPWorldWide.Framework.Adviser.Helper.Launcher@4bbfb90a]" name="afterSuite" is-config="true" duration-ms="1496" started-at="2017-11-20T11:41:26Z" finished-at="2017-11-20T11:41:28Z">
+        <test-method status="PASS" signature="afterSuite()[pri:0, instance:com.VP.Framework.Adviser.Helper.Launcher@7085bdee]" name="afterSuite" is-config="true" duration-ms="2015" started-at="2017-11-22T16:09:20Z" finished-at="2017-11-22T16:09:22Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterSuite -->
-        <test-method status="PASS" signature="afterSuite(org.testng.ITestContext)[pri:0, instance:com.SSPWorldWide.Framework.Adviser.Helper.WebdriverHelper@7c29daf3]" name="afterSuite" is-config="true" duration-ms="62" started-at="2017-11-20T11:41:28Z" finished-at="2017-11-20T11:41:28Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@6e7c351d]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterSuite -->
-      </class> <!-- com.SSPWorldWide.Framework.Adviser.Helper.Launcher -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      </class> <!-- com.VP.Framework.Adviser.Helper.Launcher -->
+    </test> <!-- Automation -->
+  </suite> <!-- Automation -->
 </testng-results>

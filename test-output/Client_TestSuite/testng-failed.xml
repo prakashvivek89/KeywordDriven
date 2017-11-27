@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Client_TestSuite]">
-  <test name="Client.001(failed)">
+  <test name="Client_001(failed)">
     <classes>
-      <class name="com.SSPWorldWide.Framework.Adviser.Testcases.Client_TestSuite">
+      <class name="com.VP.Framework.Adviser.Testcases.Client_TestSuite">
         <methods>
-          <include name="beforeMethod"/>
           <include name="Client_001"/>
           <include name="tearDown"/>
           <include name="beforeSuite"/>
           <include name="afterSuite"/>
+          <include name="beforeMethod"/>
         </methods>
-      </class> <!-- com.SSPWorldWide.Framework.Adviser.Testcases.Client_TestSuite -->
+      </class> <!-- com.VP.Framework.Adviser.Testcases.Client_TestSuite -->
     </classes>
-  </test> <!-- Client.001(failed) -->
+  </test> <!-- Client_001(failed) -->
 </suite> <!-- Failed suite [Client_TestSuite] -->
