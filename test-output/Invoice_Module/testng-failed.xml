@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Invoice_Module]">
+  <parameter name="browser" value="IE"/>
+  <test name="Invoice_Module_004(failed)">
+    <classes>
+      <class name="com.SSPWorldWide.Framework.Adviser.Testcases.Invoice_Module">
+        <methods>
+          <include name="beforeMethod"/>
+          <include name="Invoice_Module_004"/>
+          <include name="tearDown"/>
+          <include name="beforeSuite"/>
+          <include name="afterSuite"/>
+        </methods>
+      </class> <!-- com.SSPWorldWide.Framework.Adviser.Testcases.Invoice_Module -->
+    </classes>
+  </test> <!-- Invoice_Module_004(failed) -->
+</suite> <!-- Failed suite [Invoice_Module] -->

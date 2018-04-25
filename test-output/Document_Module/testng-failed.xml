@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Document_Module]">
+  <parameter name="browser" value="IE"/>
+  <test name="Document_Module_001(failed)">
+    <classes>
+      <class name="com.SSPWorldWide.Framework.Adviser.Testcases.Document_Module">
+        <methods>
+          <include name="beforeMethod"/>
+          <include name="Document_Module_001"/>
+          <include name="tearDown"/>
+          <include name="beforeSuite"/>
+          <include name="afterSuite"/>
+        </methods>
+      </class> <!-- com.SSPWorldWide.Framework.Adviser.Testcases.Document_Module -->
+    </classes>
+  </test> <!-- Document_Module_001(failed) -->
+</suite> <!-- Failed suite [Document_Module] -->

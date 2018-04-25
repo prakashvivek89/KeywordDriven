@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Workflow_Module]">
+  <parameter name="browser" value="IE"/>
+  <test name="Workflow_Module_001(failed)">
+    <classes>
+      <class name="com.SSPWorldWide.Framework.Adviser.Testcases.Workflow_Module">
+        <methods>
+          <include name="beforeMethod"/>
+          <include name="Workflow_Module_001"/>
+          <include name="tearDown"/>
+          <include name="beforeSuite"/>
+          <include name="afterSuite"/>
+        </methods>
+      </class> <!-- com.SSPWorldWide.Framework.Adviser.Testcases.Workflow_Module -->
+    </classes>
+  </test> <!-- Workflow_Module_001(failed) -->
+  <test name="Workflow_Module_004(failed)">
+    <classes>
+      <class name="com.SSPWorldWide.Framework.Adviser.Testcases.Workflow_Module">
+        <methods>
+          <include name="beforeMethod"/>
+          <include name="Workflow_Module_004"/>
+          <include name="tearDown"/>
+          <include name="beforeSuite"/>
+          <include name="afterSuite"/>
+        </methods>
+      </class> <!-- com.SSPWorldWide.Framework.Adviser.Testcases.Workflow_Module -->
+    </classes>
+  </test> <!-- Workflow_Module_004(failed) -->
+  <test name="Workflow_Module_005(failed)">
+    <classes>
+      <class name="com.SSPWorldWide.Framework.Adviser.Testcases.Workflow_Module">
+        <methods>
+          <include name="beforeMethod"/>
+          <include name="Workflow_Module_005"/>
+          <include name="tearDown"/>
+          <include name="beforeSuite"/>
+          <include name="afterSuite"/>
+        </methods>
+      </class> <!-- com.SSPWorldWide.Framework.Adviser.Testcases.Workflow_Module -->
+    </classes>
+  </test> <!-- Workflow_Module_005(failed) -->
+  <test name="Workflow_Module_002(failed)">
+    <classes>
+      <class name="com.SSPWorldWide.Framework.Adviser.Testcases.Workflow_Module">
+        <methods>
+          <include name="beforeMethod"/>
+          <include name="Workflow_Module_002"/>
+          <include name="tearDown"/>
+          <include name="beforeSuite"/>
+          <include name="afterSuite"/>
+        </methods>
+      </class> <!-- com.SSPWorldWide.Framework.Adviser.Testcases.Workflow_Module -->
+    </classes>
+  </test> <!-- Workflow_Module_002(failed) -->
+</suite> <!-- Failed suite [Workflow_Module] -->

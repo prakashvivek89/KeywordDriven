@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Client_Module]">
+  <parameter name="browser" value="IE"/>
+  <test name="Client_Module_007(failed)">
+    <classes>
+      <class name="com.SSPWorldWide.Framework.Adviser.Testcases.Client_Module">
+        <methods>
+          <include name="beforeMethod"/>
+          <include name="Client_Module_007"/>
+          <include name="tearDown"/>
+          <include name="beforeSuite"/>
+          <include name="afterSuite"/>
+        </methods>
+      </class> <!-- com.SSPWorldWide.Framework.Adviser.Testcases.Client_Module -->
+    </classes>
+  </test> <!-- Client_Module_007(failed) -->
+  <test name="Client_Module_008(failed)">
+    <classes>
+      <class name="com.SSPWorldWide.Framework.Adviser.Testcases.Client_Module">
+        <methods>
+          <include name="Client_Module_008"/>
+          <include name="beforeMethod"/>
+          <include name="tearDown"/>
+          <include name="beforeSuite"/>
+          <include name="afterSuite"/>
+        </methods>
+      </class> <!-- com.SSPWorldWide.Framework.Adviser.Testcases.Client_Module -->
+    </classes>
+  </test> <!-- Client_Module_008(failed) -->
+  <test name="Client_Module_012(failed)">
+    <classes>
+      <class name="com.SSPWorldWide.Framework.Adviser.Testcases.Client_Module">
+        <methods>
+          <include name="beforeMethod"/>
+          <include name="Client_Module_012"/>
+          <include name="tearDown"/>
+          <include name="beforeSuite"/>
+          <include name="afterSuite"/>
+        </methods>
+      </class> <!-- com.SSPWorldWide.Framework.Adviser.Testcases.Client_Module -->
+    </classes>
+  </test> <!-- Client_Module_012(failed) -->
+  <test name="Client_Module_013(failed)">
+    <classes>
+      <class name="com.SSPWorldWide.Framework.Adviser.Testcases.Client_Module">
+        <methods>
+          <include name="beforeMethod"/>
+          <include name="Client_Module_013"/>
+          <include name="tearDown"/>
+          <include name="beforeSuite"/>
+          <include name="afterSuite"/>
+        </methods>
+      </class> <!-- com.SSPWorldWide.Framework.Adviser.Testcases.Client_Module -->
+    </classes>
+  </test> <!-- Client_Module_013(failed) -->
+</suite> <!-- Failed suite [Client_Module] -->
