@@ -1,32 +1,121 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" ignored="6" total="9" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Automation" duration-ms="44997" started-at="2017-11-22T10:38:35Z" finished-at="2017-11-22T10:39:20Z">
+  <suite name="Login_TestSuite" duration-ms="102945" started-at="2017-11-27T06:01:31Z" finished-at="2017-11-27T06:03:14Z">
     <groups>
     </groups>
-    <test name="Automation" duration-ms="44997" started-at="2017-11-22T10:38:35Z" finished-at="2017-11-22T10:39:20Z">
-      <class name="com.VP.Framework.Adviser.Helper.Launcher">
-        <test-method status="PASS" signature="beforeSuite(org.testng.ITestContext)[pri:0, instance:com.VP.Framework.Adviser.Helper.Launcher@7085bdee]" name="beforeSuite" is-config="true" duration-ms="594" started-at="2017-11-22T16:08:34Z" finished-at="2017-11-22T16:08:35Z">
+    <test name="Login_002" duration-ms="32056" started-at="2017-11-27T06:01:31Z" finished-at="2017-11-27T06:02:03Z">
+      <class name="com.VP.Framework.Adviser.Testcases.Login_TestSuite">
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.VP.Framework.Adviser.Testcases.Login_TestSuite@416c58f5]" name="beforeMethod" is-config="true" duration-ms="8070" started-at="2017-11-27T11:31:31Z" finished-at="2017-11-27T11:31:39Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@7d3fb0ef]]>
+                <![CDATA[public static void com.VP.Framework.Adviser.Testcases.Login_TestSuite.Login_002() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="Login_002()[pri:0, instance:com.VP.Framework.Adviser.Testcases.Login_TestSuite@416c58f5]" name="Login_002" duration-ms="23986" started-at="2017-11-27T11:31:39Z" description="Login Second Test Case" finished-at="2017-11-27T11:32:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login_002 -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.VP.Framework.Adviser.Testcases.Login_TestSuite@416c58f5]" name="tearDown" is-config="true" duration-ms="0" started-at="2017-11-27T11:32:03Z" finished-at="2017-11-27T11:32:03Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=Login_002 status=SUCCESS method=Login_TestSuite.Login_002()[pri:0, instance:com.VP.Framework.Adviser.Testcases.Login_TestSuite@416c58f5] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.VP.Framework.Adviser.Testcases.Login_TestSuite -->
+    </test> <!-- Login_002 -->
+    <test name="Login_001" duration-ms="41943" started-at="2017-11-27T06:02:03Z" finished-at="2017-11-27T06:02:45Z">
+      <class name="com.VP.Framework.Adviser.Testcases.Login_TestSuite">
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.VP.Framework.Adviser.Testcases.Login_TestSuite@5a2d131d]" name="beforeMethod" is-config="true" duration-ms="7753" started-at="2017-11-27T11:32:03Z" finished-at="2017-11-27T11:32:11Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public static void com.VP.Framework.Adviser.Testcases.Login_TestSuite.Login_001() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="Login_001()[pri:0, instance:com.VP.Framework.Adviser.Testcases.Login_TestSuite@5a2d131d]" name="Login_001" duration-ms="34190" started-at="2017-11-27T11:32:11Z" description="Login First Test Case" finished-at="2017-11-27T11:32:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login_001 -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.VP.Framework.Adviser.Testcases.Login_TestSuite@5a2d131d]" name="tearDown" is-config="true" duration-ms="0" started-at="2017-11-27T11:32:45Z" finished-at="2017-11-27T11:32:45Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=Login_001 status=SUCCESS method=Login_TestSuite.Login_001()[pri:0, instance:com.VP.Framework.Adviser.Testcases.Login_TestSuite@5a2d131d] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.VP.Framework.Adviser.Testcases.Login_TestSuite -->
+    </test> <!-- Login_001 -->
+    <test name="Login_003" duration-ms="28931" started-at="2017-11-27T06:02:45Z" finished-at="2017-11-27T06:03:14Z">
+      <class name="com.VP.Framework.Adviser.Testcases.Login_TestSuite">
+        <test-method status="PASS" signature="beforeSuite(org.testng.ITestContext)[pri:0, instance:com.VP.Framework.Adviser.Testcases.Login_TestSuite@1800a575]" name="beforeSuite" is-config="true" duration-ms="172" started-at="2017-11-27T11:31:31Z" finished-at="2017-11-27T11:31:31Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@2e7157c7]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeSuite -->
-        <test-method status="PASS" signature="launchAutomation()[pri:0, instance:com.VP.Framework.Adviser.Helper.Launcher@7085bdee]" name="launchAutomation" duration-ms="44981" started-at="2017-11-22T16:08:35Z" finished-at="2017-11-22T16:09:20Z">
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.VP.Framework.Adviser.Testcases.Login_TestSuite@1800a575]" name="beforeMethod" is-config="true" duration-ms="7203" started-at="2017-11-27T11:32:45Z" finished-at="2017-11-27T11:32:52Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public static void com.VP.Framework.Adviser.Testcases.Login_TestSuite.Login_003() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- launchAutomation -->
-        <test-method status="PASS" signature="afterSuite()[pri:0, instance:com.VP.Framework.Adviser.Helper.Launcher@7085bdee]" name="afterSuite" is-config="true" duration-ms="2015" started-at="2017-11-22T16:09:20Z" finished-at="2017-11-22T16:09:22Z">
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="Login_003()[pri:0, instance:com.VP.Framework.Adviser.Testcases.Login_TestSuite@1800a575]" name="Login_003" duration-ms="21728" started-at="2017-11-27T11:32:52Z" description="Login Third Test Case" finished-at="2017-11-27T11:33:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login_003 -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.VP.Framework.Adviser.Testcases.Login_TestSuite@1800a575]" name="tearDown" is-config="true" duration-ms="0" started-at="2017-11-27T11:33:14Z" finished-at="2017-11-27T11:33:14Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=Login_003 status=SUCCESS method=Login_TestSuite.Login_003()[pri:0, instance:com.VP.Framework.Adviser.Testcases.Login_TestSuite@1800a575] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="afterSuite(org.testng.ITestContext)[pri:0, instance:com.VP.Framework.Adviser.Testcases.Login_TestSuite@1800a575]" name="afterSuite" is-config="true" duration-ms="657" started-at="2017-11-27T11:33:14Z" finished-at="2017-11-27T11:33:15Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@2e7157c7]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterSuite -->
-      </class> <!-- com.VP.Framework.Adviser.Helper.Launcher -->
-    </test> <!-- Automation -->
-  </suite> <!-- Automation -->
+      </class> <!-- com.VP.Framework.Adviser.Testcases.Login_TestSuite -->
+    </test> <!-- Login_003 -->
+  </suite> <!-- Login_TestSuite -->
 </testng-results>
