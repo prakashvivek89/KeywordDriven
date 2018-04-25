@@ -1,1 +1,0 @@
-select top 1 * from S_CLIENT
